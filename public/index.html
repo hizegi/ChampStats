@@ -1,0 +1,40 @@
+<html ng-app="champApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>League of Legends - Team Champ Stats</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src='js/userform.js'></script>
+    <script src='js/main.js'></script>
+    <script src='js/locationform.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <base href="/">
+
+</head>
+<body>
+
+
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">home</a>
+				<li ng-if='user'><a href="/search">search</a>
+				<li ng-if='user'><a href="/" ng-click='logoutUser()'>logout</a></li>
+				<li ng-if='user'><a href="/delete">Delete</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div ng-view></div>
+
+	WELCOME TO LEAGUE OF LEGENDS CHAMP STATS
+
+	{{2+2}}
+
+
+</body>
+</html>

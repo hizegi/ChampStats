@@ -1,0 +1,124 @@
+<main  class='animated fadeInUp'>
+<!-- JOHNS USER LOGIN FORM -->
+<div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
+
+    <h1>Wine Not?</h1><br/>
+	
+    <h2>SIGN UP AND TRACK YOUR WINE!</h2>
+	<form id='userSignup'>
+		<h3>USERNAME:</h3><br/>
+		<input type='text' ng-model='username' id='username' placeholder='username'/>
+		<h3>PASSWORD:</h3><br/>
+		<input type='password' ng-model='password' id='password' placeholder='password'/><br/>
+		<button ng-click='addUser()'>Signup</button>
+	</form>
+	<a href="/user/login">Already a Wino? Log in here!</a>
+
+</div>
+<!-- JOHNS USER LOGIN FORM --> 
+
+<section ng-if="user">
+	<br/><br/>
+	<h2>WELCOME BACK, {{user.username | uppercase}}</h2><br/>
+
+
+
+	<section id="home-wrapper" ng-controller="LocationController as locationCtrl">
+
+        <!-- THIS IS THE SIDEBAR -->
+        <div id="sidebar">
+           <h3 class="animated flash"> NOTIFICATIONS</h3>
+                <div class="notifications-div" ng-repeat="location in locationCtrl.locations track by $index">
+                <span class="location-name">{{location.name}}</span>
+                <!-- for every wine for this location, display wine, limit: 5? -->
+                <div ng-repeat="wine in location.wine track by $index" class="wine-list" ng-if="wine.onHand <= 1">       
+                <p>{{wine.name}} </p>
+                <br>
+                <p id="on-hand" class="animated flash"><strong>{{wine.onHand}} remaining &nbsp; &nbsp;  </strong><a href="{{wine.url}}">Reorder wine</a> </p><br/>
+                </div>
+                </div><br/>
+        </div>
+        <!-- THIS ENDS SIDE BAR -->
+		
+        <!-- THIS IS THE LOCATIONS WRAPPER -->
+		<div id="locations-wrapper">
+
+            <!-- THIS IS THE SEARCH BAR -->
+            <form id="searchbar">
+                <label>SEARCH YOUR LOCATIONS OR WINES: </label>
+                <input type="text" placeholder="search here" ng-model="searchBox">
+            </form><br/>
+            <!-- THIS ENDS THE SEARCH BAR -->
+			
+
+            <!-- THIS IS THE LOCATIONS DIV -->
+			<div class="locations-div" ng-repeat="location in locationCtrl.locations | filter:searchBox track by $index">
+
+                <!-- THIS IS EACH LOCATIONS DIV -->
+                <div id="each-location-wrapper" class='animated fadeInUp'>
+                    <span class="location-name">{{location.name}}</span>
+    				<!-- for every wine for this location, display wine -->
+    				<div ng-repeat="wine in location.wine track by $index " class="wine-list" class='animated fadeInUp'>		
+     					
+                        <div id="span-wine-name">
+                            <span>{{wine.name}} </span>
+                        </div>
+
+                        <div id="wine-buttons">
+                            <p id="p1" class='animated pulse'>{{wine.onHand}}</p>
+                            <img id="increase" src="/images/add.jpg" ng-click="locationCtrl.addOneWine($index, location.name)">
+                            <img id="decrease" src="/images/minus.jpg" ng-click="locationCtrl.minusOneWine($index, location.name)">
+                            <img id="delete" src="/images/delete.jpg" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)">
+                        </div>
+     				</div>
+                </div>
+                <!-- THIS ENDS EACH LOCATIONS DIV -->
+
+                <!-- THESE ARE THE BUTTONS FOR THE LOCATIONS -->
+    			<div id="location-buttons">
+                    <div class="locations-button">
+                        <a href="/search">Add Wine</a>
+                    </div>
+
+                    <div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
+                        <input type='hidden' ng-model='index' name='index' value='$index'>Edit Location
+                    </div>
+                </div>
+                <!-- THIS ENDS THE BUTTONS FOR LOCATIONS -->
+            </div>
+            <!-- THIS ENDS THE LOCATIONS DIV -->
+
+            <!-- THIS IS THE ADD NEW LOCATION DIV -->
+            <div class="locations-div" id="add-location-div" ng-if='locationCtrl.showAddDiv'>
+                <form id='addLocation' ng-submit=''>
+                    <h2>Add a New Location:</h2><br/>
+                    <input type='text' ng-model='locationCtrl.name' placeholder='Location Name'/><br/>
+                    <button ng-click='locationCtrl.addLocation()'>Add</button>
+                </form>
+            </div>
+            <!-- THIS ENDS THE ADD NEW LOCATION -->
+
+        </div> <!-- ******************* ends location wrapper -->
+
+        <div id="edit-wrapper">
+            <!-- THIS IS THE EDIT LOCATIONS DIV -->
+            <!-- <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'> -->
+
+            <div id="choose-locations" ng-if="locationCtrl.showEditDiv">
+
+                <span class="location-name">EDIT LOCATION NAME: </span>
+                <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+                <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
+                <button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
+                <button ng-click="locationCtrl.cancel()">Cancel</button>
+            </div>
+            <!-- THIS ENDS THE EDIT LOCATIONS DIV -->
+
+            <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
+        </div>
+
+
+
+        </section>
+    </section>
+</main>
