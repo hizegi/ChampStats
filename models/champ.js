@@ -7,7 +7,7 @@ var champSchema = new mongoose.Schema({
 	id: Number,
 	key: String,
 	title: String,
-	stats: []
+	stats: {}
 
 });
 

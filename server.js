@@ -12,7 +12,7 @@ var session = require('express-session');
 //setting up port/DB, requiring mongoose
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
-var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/wine_not';
+var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/champs';
 
 
 //pass port config load
@@ -31,13 +31,16 @@ var passport = require('passport');
 
 var session = require('express-session');
 
-app.use(session({name: 'wine_not_auth_app', secret: 'wine'}));
+app.use(session({name: 'champs_stat_auth_app', secret: 'leagueofdraven'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 //controllers
 var userController = require('./controllers/userController.js');
 app.use('/user', userController);
+
+var champController = require('./controllers/champController.js');
+app.use('/champ', champController);
 
 //mongoose
 mongoose.connect(mongoURI);
