@@ -36,11 +36,29 @@
 
 
     <ul ng-controller="ChampController as ChampCtrl">
-        <li ng-repeat="champ in ChampCtrl.champs">
-            Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}, {{champ.stats.armor}}
-            <p ng-repeat="stat in champ.stats">{{stat}}</p><br>
-
-        </li>
+      <li ng-repeat="champ in ChampCtrl.champs">
+           <strong> Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}</strong><br>
+            Armor: {{champ.stats.armor}}<br>
+            Armor Per Level: {{champ.stats.armorperlevel}}<br>
+            Attack Damage: {{champ.stats.attackdamage}}<br>
+			Attack Damage per Level: {{champ.stats.attackdamagerperlevel}}<br>
+			Attack Range: {{champ.stats.attackrange}}<br>
+			Attack Speed Offset: {{champ.stats.attackspeedoffset}}<br>
+			Attack Speed Per Level: {{champ.stats.attackspeedperlevel}}<br>
+			Crit: {{champ.stats.crit}}<br>
+			Crit per level: {{champ.stats.critperlevel}}<br>
+			HP: {{champ.stats.hp}}<br>
+			HP per Level: {{champ.stats.hpperlevel}}<br>
+			HP Regen: {{champ.stats.hpregen}}<br>
+			HP Regen per Level: {{champ.stats.hpregenperlevel}}<br>
+			Movement Speed: {{champ.stats.movespeed}}<br>
+			MP: {{champ.stats.mp}}<br>
+			MP per Level: {{champ.stats.mpperlevel}}<br>
+			MP Regen: {{champ.stats.mpregen}}<br>
+			MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
+			Spell Block: {{champ.stats.spellblock}}<br>
+			Spell Block per Level: {{champ.stats.spellblockperlevel}}<br><br><br>
+        </li><br><br>
     </ul>
 
 </body>
