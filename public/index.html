@@ -30,18 +30,22 @@
 	</header>
 	
 
-	WELCOME TO LEAGUE OF LEGENDS CHAMP STATS
+	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS</h1>
 
-	{{2+2}}
+	<h2>Search Champions</h2>
+	<input type="text" ng-model="searchBox">
+	<p>Click on a champ to add to your team</p>
 
+    <div id="champ-wrapper" ng-controller="ChampController as ChampCtrl">
 
-    <ul ng-controller="ChampController as ChampCtrl">
-      <li ng-repeat="champ in ChampCtrl.champs">
+        <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
            <strong> Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}</strong><br>
+           <h1>{{champ.name}}</h1>
+           <img ng-click="ChampCtrl.showInfo(champ.title)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
             Armor: {{champ.stats.armor}}<br>
             Armor Per Level: {{champ.stats.armorperlevel}}<br>
             Attack Damage: {{champ.stats.attackdamage}}<br>
-			Attack Damage per Level: {{champ.stats.attackdamagerperlevel}}<br>
+			Attack Damage per Level: {{champ.stats.attackdamageperlevel}}<br>
 			Attack Range: {{champ.stats.attackrange}}<br>
 			Attack Speed Offset: {{champ.stats.attackspeedoffset}}<br>
 			Attack Speed Per Level: {{champ.stats.attackspeedperlevel}}<br>
@@ -58,8 +62,13 @@
 			MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
 			Spell Block: {{champ.stats.spellblock}}<br>
 			Spell Block per Level: {{champ.stats.spellblockperlevel}}<br><br><br>
-        </li><br><br>
-    </ul>
+        </div><br><br>
+    </div>
 
+
+    <div id="team-wrapper">
+    	<div id="team-stats">
+    	</div>
+	</div>
 </body>
 </html>

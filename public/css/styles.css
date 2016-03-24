@@ -1,0 +1,26 @@
+body {
+	background: snow;
+	height: 100%;
+}
+
+.champ-div {
+	width: 200px;
+	display: inline-block;
+}
+
+#champ-wrapper {
+	width: 70%;
+	background: goldenrod;
+	padding: 1em;
+	height: 70%;
+	overflow: auto;
+	display: inline-block;
+}
+
+#team-wrapper {
+	display: inline-block;
+	width: 25%;
+	float: right;
+	height: 70%;
+	background: thistle;
+}

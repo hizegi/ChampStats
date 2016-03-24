@@ -18,6 +18,9 @@ app.controller('ChampController', ['$http', function($http){
 	// 		console.log(err)
 	// 	});
 
+	//HTTP Request to RIOT API
+	// + get champ ID
+	// + make another HTTP request for champ info based on ID to display on page
 	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
 	.then(
 		function(response){
@@ -29,9 +32,7 @@ app.controller('ChampController', ['$http', function($http){
 						if (obj.hasOwnProperty(prop)){
 							if (prop == "id"){
 								controller.champ_id = obj[prop]
-								console.log(controller.champ_id)
-								// controller.champ_ids.push(obj[prop]);
-								// console.log(controller.champ_ids);
+								// console.log(controller.champ_id)
 
 
 								$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id +"?champData=stats&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
@@ -55,13 +56,17 @@ app.controller('ChampController', ['$http', function($http){
 		},
 		function(err){
 			console.log(err)
-		});
+		}); //ends HTTP Request
+
+	this.showInfo = function(name){
+		console.log(name)
+	}
 
 
 
 
 
-}]);
+}]); //ends ChampController
 
 
 
