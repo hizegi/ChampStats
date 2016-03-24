@@ -3,6 +3,10 @@ body {
 	height: 100%;
 }
 
+/*****************/
+/* CHAMP SELECT  */
+/*****************/
+
 .champ-div {
 	width: 200px;
 	display: inline-block;
@@ -27,4 +31,17 @@ body {
 	float: right;
 	height: 70%;
 	background: thistle;
+}
+
+#team-pics {
+	width: 80px;
+}
+
+.icon {
+	width: 80px;
+	margin-bottom: 5px;
+}
+
+#team-stats {
+
 }

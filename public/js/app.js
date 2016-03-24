@@ -6,7 +6,7 @@ app.controller('ChampController', ['$http', function($http){
 	this.champs = [];
 	this.champ_id = "";
 	var controller = this;
-	this.choice = "";
+	this.choice = [];
 
 	// $http.get('/champ').then(
 	// 	//success
@@ -59,10 +59,17 @@ app.controller('ChampController', ['$http', function($http){
 			console.log(err)
 		}); //ends HTTP Request
 
+	//this will add the champ to the champ side table, prevents duplicates
 	this.showInfo = function(name){
+		if (controller.choice.indexOf(name) == -1) {
+			controller.choice.push(name)
+		}
+	}//ends showInfo
+
+
+	this.remove = function(name){
 		console.log(name)
 	}
-
 
 
 
