@@ -3,7 +3,7 @@ var app = angular.module("champApp", []);
 // var app = angular.module("champApp", ["ngRoute", "user-form", "location-form", 'main']);
 
 
-app.controller('ChampController', ['$http', function($http){
+app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 	this.champs = [];
 	this.champ_id = "";
 	var controller = this;
@@ -97,32 +97,20 @@ app.controller('ChampController', ['$http', function($http){
 		controller.totalStats.forEach(function(obj){
 			for (var key in obj) {
 				if (obj.hasOwnProperty(key)){
-
-					// console.log("this is the obj", obj);
 					controller.statsObj[key] = (controller.statsObj[key] || 0) + obj[key];
-					// console.log("This is startObj[p] ", controller.statsObj[prop]);
-					// console.log("This is obj[p] ", obj[prop]);
-
-					console.log("This is obj[key]: ", obj[key]);
 				}
 			}
-			console.log("This is the STATS OBJECT: ", controller.statsObj);
-
+			// console.log("This is the STATS OBJECT: ", controller.statsObj);
 		});
+	}; //ends repopulate()
+
+
+	$scope.formatNumber = function(i) {
+	    return Math.round(i * 100)/100; 
 	}
-
-
-
 	
 
 
 
 
 }]); //ends ChampController
-
-
-// 1. if i click on a champ, his picture and stats will show up on the sidebar
-// 2. How to do this? 
-// 3. On click, I can push the info into arrays by index
-// 4. but once i click, it has to be subtracted again
-// display sum of array [2, 4, 5]
