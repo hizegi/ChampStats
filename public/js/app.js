@@ -8,6 +8,29 @@ app.controller('ChampController', ['$http', function($http){
 	this.champ_id = "";
 	var controller = this;
 	this.choice = [];
+	//CUMULATIVE STATS ARRAYS
+	this.totalStats = [];
+
+	this.armor = [];	      
+	this.armorperlevel = [];
+	this.attackdamage = [];
+	this.attackdamageperlevel = [];	
+	this.attackrange = [];
+	this.attackspeedoffset = [];
+	this.attackspeedperlevel = [];
+	this.crit= [];
+	this.critperlevel = [];
+	this.hp = [];
+	this.hpperlevel = [];
+	this.hpregen = [];
+	this.hpregenperlevel = [];
+	this.movementspeed = [];
+	this.mp = [];
+	this.mpperlevel = [];
+	this.mpregen = [];
+	this.mpregenperlevel = [];
+	this.spellblock = [];
+	this.spellblockperlevel = [];
 
 	// $http.get('/champ').then(
 	// 	//success
@@ -61,10 +84,17 @@ app.controller('ChampController', ['$http', function($http){
 		}); //ends HTTP Request
 
 	//this will add the champ to the champ side table, prevents duplicates
-	this.showInfo = function(name){
-		if ((controller.choice.indexOf(name) == -1) && (controller.choice.length < 5)) {
-			controller.choice.push(name)
+	// + push stats info to be accumulated
+	this.showInfo = function(champ){
+		if ((controller.choice.indexOf(champ.key) == -1) && (controller.choice.length < 5)) {
+			controller.choice.push(champ.key)
 		}
+
+		if (controller.totalStats.indexOf(champ.stats) == -1) {
+			controller.totalStats.push(champ.stats)
+			console.log("this is totalStats array: ", controller.totalStats)
+		}
+
 	}//ends showInfo
 
 	//this removes the champ from the side table
@@ -78,5 +108,11 @@ app.controller('ChampController', ['$http', function($http){
 
 }]); //ends ChampController
 
+
+// 1. if i click on a champ, his picture and stats will show up on the sidebar
+// 2. How to do this? 
+// 3. On click, I can push the info into arrays by index
+// 4. but once i click, it has to be subtracted again
+// display sum of array [2, 4, 5]
 
 

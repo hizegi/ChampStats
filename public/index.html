@@ -42,7 +42,7 @@
         <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
            <strong> Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}</strong><br>
            <h3>{{champ.name}}</h3>
-           <img ng-click="ChampCtrl.showInfo(champ.key)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
+           <img ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
             Armor: {{champ.stats.armor}}<br>
             Armor Per Level: {{champ.stats.armorperlevel}}<br>
             Attack Damage: {{champ.stats.attackdamage}}<br>
@@ -97,11 +97,7 @@
 			Spell Block per Level:<br><br><br>
     	</div>
     	<div id="stat-numbers">
-    		1 <br>
-    		3 <br>
-    		4 <br>
-    		5 <br>
-    		4 <br>
+			<p ng-repeat="stat in ChampCtrl.totalStats">{{stat}}</p>
     	</div>
 	</div>
 
