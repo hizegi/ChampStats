@@ -2,6 +2,7 @@
 var app = angular.module("champApp", []);
 // var app = angular.module("champApp", ["ngRoute", "user-form", "location-form", 'main']);
 
+
 app.controller('ChampController', ['$http', function($http){
 	this.champs = [];
 	this.champ_id = "";
@@ -61,14 +62,15 @@ app.controller('ChampController', ['$http', function($http){
 
 	//this will add the champ to the champ side table, prevents duplicates
 	this.showInfo = function(name){
-		if (controller.choice.indexOf(name) == -1) {
+		if ((controller.choice.indexOf(name) == -1) && (controller.choice.length < 5)) {
 			controller.choice.push(name)
 		}
 	}//ends showInfo
 
-
-	this.remove = function(name){
-		console.log(name)
+	//this removes the champ from the side table
+	this.remove = function(index){
+		console.log(index)
+		controller.choice.splice(index, 1)
 	}
 
 

@@ -70,12 +70,38 @@
     <div id="team-wrapper">
     	<h3>Assemble Your Team</h3>
     	<div id="team-pics">
-    		
     		<div ng-if="ChampCtrl.choice">
-    			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove(champ, $index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
+    			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
     		</div>
     	</div>
     	<div id="team-stats">
+         	Armor: <br>
+            Armor Per Level:<br>
+            Attack Damage:<br>
+			Attack Damage per Level:<br>
+			Attack Range:<br>
+			Attack Speed Offset:<br>
+			Attack Speed Per Level: <br>
+			Crit: <br>
+			Crit per level: <br>
+			HP: <br>
+			HP per Level: <br>
+			HP Regen: <br>
+			HP Regen per Level: <br>
+			Movement Speed: <br>
+			MP: <br>
+			MP per Level: <br>
+			MP Regen: <br>
+			MP Regen Per Level: <br>
+			Spell Block: <br>
+			Spell Block per Level:<br><br><br>
+    	</div>
+    	<div id="stat-numbers">
+    		1 <br>
+    		3 <br>
+    		4 <br>
+    		5 <br>
+    		4 <br>
     	</div>
 	</div>
 

@@ -7,13 +7,13 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
+require('dotenv').load();
 // var route = require('angular-route');
 
 //setting up port/DB, requiring mongoose
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/champs';
-
 
 //pass port config load
 require('./config/passport')(passport);

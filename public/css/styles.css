@@ -17,7 +17,7 @@ body {
 }
 
 #champ-wrapper {
-	width: 70%;
+	width: 60%;
 	background: goldenrod;
 	padding: 1em;
 	height: 70%;
@@ -27,14 +27,21 @@ body {
 
 #team-wrapper {
 	display: inline-block;
-	width: 25%;
+	width: 35%;
 	float: right;
 	height: 70%;
 	background: thistle;
+	padding-left: 1em;
+}
+
+#team-wrapper h3{
+	text-align: center;
 }
 
 #team-pics {
 	width: 80px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .icon {
@@ -43,5 +50,14 @@ body {
 }
 
 #team-stats {
+	display: inline-block;
+	width: 180px;
+	vertical-align: top;
+	margin-left: 10px;
+}
 
+#stat-numbers {
+	width: 20px;
+	display: inline-block;
+	vertical-align: top;
 }
