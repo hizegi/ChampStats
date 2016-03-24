@@ -11,6 +11,8 @@ app.controller('ChampController', ['$http', function($http){
 	//CUMULATIVE STATS ARRAYS
 	this.totalStats = [];
 
+	this.statsObj = {};
+
 	// $http.get('/champ').then(
 	// 	//success
 	// 	function(response){
@@ -74,14 +76,44 @@ app.controller('ChampController', ['$http', function($http){
 			console.log("this is totalStats array: ", controller.totalStats)
 		}
 
+		controller.statsObj = {};
+
+		repopulate();
+
 	}//ends showInfo
 
 	//this removes the champ and stats from the side table
 	this.remove = function(index){
-		console.log(index)
-		controller.choice.splice(index, 1)
-		controller.totalStats.splice(index, 1)
+		console.log(index);
+		controller.choice.splice(index, 1);
+		controller.totalStats.splice(index, 1);
+		controller.statsObj = {};
+
+		repopulate();
+	}//ends remove()
+
+	//iterates obj and sums all values
+	var repopulate = function() {
+		controller.totalStats.forEach(function(obj){
+			for (var key in obj) {
+				if (obj.hasOwnProperty(key)){
+
+					// console.log("this is the obj", obj);
+					controller.statsObj[key] = (controller.statsObj[key] || 0) + obj[key];
+					// console.log("This is startObj[p] ", controller.statsObj[prop]);
+					// console.log("This is obj[p] ", obj[prop]);
+
+					console.log("This is obj[key]: ", obj[key]);
+				}
+			}
+			console.log("This is the STATS OBJECT: ", controller.statsObj);
+
+		});
 	}
+
+
+
+	
 
 
 
@@ -94,5 +126,3 @@ app.controller('ChampController', ['$http', function($http){
 // 3. On click, I can push the info into arrays by index
 // 4. but once i click, it has to be subtracted again
 // display sum of array [2, 4, 5]
-
-
