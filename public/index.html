@@ -29,12 +29,19 @@
 		</nav>
 	</header>
 	
-	<div ng-view></div>
 
 	WELCOME TO LEAGUE OF LEGENDS CHAMP STATS
 
 	{{2+2}}
 
+
+    <ul ng-controller="ChampController as ChampCtrl">
+        <li ng-repeat="champ in ChampCtrl.champs">
+            Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}, {{champ.stats.armor}}
+            <p ng-repeat="stat in champ.stats">{{stat}}</p><br>
+
+        </li>
+    </ul>
 
 </body>
 </html>

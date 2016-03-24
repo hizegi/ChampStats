@@ -36,8 +36,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //controllers
-var userController = require('./controllers/userController.js');
-app.use('/user', userController);
+// var userController = require('./controllers/userController.js');
+// app.use('/user', userController);
 
 var champController = require('./controllers/champController.js');
 app.use('/champ', champController);
