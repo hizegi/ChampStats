@@ -28,7 +28,8 @@
 			</ul>
 		</nav>
 	</header>
-	
+
+<main id="champ-main" ng-controller="ChampController as ChampCtrl">
 
 	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS</h1>
 
@@ -36,7 +37,7 @@
 	<input type="text" ng-model="searchBox">
 	<p>Click on a champ to add to your team</p>
 
-    <div id="champ-wrapper" ng-controller="ChampController as ChampCtrl">
+    <div id="champ-wrapper" >
 
         <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
            <strong> Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}</strong><br>
@@ -68,7 +69,13 @@
 
     <div id="team-wrapper">
     	<div id="team-stats">
+    		<div ng-if="">
+    		</div>
     	</div>
 	</div>
+
+</main>
+
+
 </body>
 </html>

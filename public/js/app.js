@@ -6,6 +6,7 @@ app.controller('ChampController', ['$http', function($http){
 	this.champs = [];
 	this.champ_id = "";
 	var controller = this;
+	this.choice = "";
 
 	// $http.get('/champ').then(
 	// 	//success

@@ -8,6 +8,10 @@ body {
 	display: inline-block;
 }
 
+#champ-main {
+	width: 100%;
+}
+
 #champ-wrapper {
 	width: 70%;
 	background: goldenrod;
