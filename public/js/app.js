@@ -11,27 +11,6 @@ app.controller('ChampController', ['$http', function($http){
 	//CUMULATIVE STATS ARRAYS
 	this.totalStats = [];
 
-	this.armor = [];	      
-	this.armorperlevel = [];
-	this.attackdamage = [];
-	this.attackdamageperlevel = [];	
-	this.attackrange = [];
-	this.attackspeedoffset = [];
-	this.attackspeedperlevel = [];
-	this.crit= [];
-	this.critperlevel = [];
-	this.hp = [];
-	this.hpperlevel = [];
-	this.hpregen = [];
-	this.hpregenperlevel = [];
-	this.movementspeed = [];
-	this.mp = [];
-	this.mpperlevel = [];
-	this.mpregen = [];
-	this.mpregenperlevel = [];
-	this.spellblock = [];
-	this.spellblockperlevel = [];
-
 	// $http.get('/champ').then(
 	// 	//success
 	// 	function(response){
@@ -90,17 +69,18 @@ app.controller('ChampController', ['$http', function($http){
 			controller.choice.push(champ.key)
 		}
 
-		if (controller.totalStats.indexOf(champ.stats) == -1) {
+		if ((controller.totalStats.indexOf(champ.stats) == -1) && (controller.totalStats.length < 5)) {
 			controller.totalStats.push(champ.stats)
 			console.log("this is totalStats array: ", controller.totalStats)
 		}
 
 	}//ends showInfo
 
-	//this removes the champ from the side table
+	//this removes the champ and stats from the side table
 	this.remove = function(index){
 		console.log(index)
 		controller.choice.splice(index, 1)
+		controller.totalStats.splice(index, 1)
 	}
 
 
