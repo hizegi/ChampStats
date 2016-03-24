@@ -40,29 +40,31 @@
     <div id="champ-wrapper" >
 
         <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
-           <strong> Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}</strong><br>
            <h3>{{champ.name}}</h3>
-           <img ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
-            Armor: {{champ.stats.armor}}<br>
-            Armor Per Level: {{champ.stats.armorperlevel}}<br>
-            Attack Damage: {{champ.stats.attackdamage}}<br>
-			Attack Damage per Level: {{champ.stats.attackdamageperlevel}}<br>
-			Attack Range: {{champ.stats.attackrange}}<br>
-			Attack Speed Offset: {{champ.stats.attackspeedoffset}}<br>
-			Attack Speed Per Level: {{champ.stats.attackspeedperlevel}}<br>
-			Crit: {{champ.stats.crit}}<br>
-			Crit per level: {{champ.stats.critperlevel}}<br>
-			HP: {{champ.stats.hp}}<br>
-			HP per Level: {{champ.stats.hpperlevel}}<br>
-			HP Regen: {{champ.stats.hpregen}}<br>
-			HP Regen per Level: {{champ.stats.hpregenperlevel}}<br>
-			Movement Speed: {{champ.stats.movespeed}}<br>
-			MP: {{champ.stats.mp}}<br>
-			MP per Level: {{champ.stats.mpperlevel}}<br>
-			MP Regen: {{champ.stats.mpregen}}<br>
-			MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
-			Spell Block: {{champ.stats.spellblock}}<br>
-			Spell Block per Level: {{champ.stats.spellblockperlevel}}<br><br><br>
+           	<img ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
+            <div class="indiv-stat">
+            	<strong> {{champ.name}} the {{champ.title}}</strong><br>
+	            Armor: {{champ.stats.armor}}<br>
+	            Armor Per Level: {{champ.stats.armorperlevel}}<br>
+	            Attack Damage: {{champ.stats.attackdamage}}<br>
+				Attack Damage per Level: {{champ.stats.attackdamageperlevel}}<br>
+				Attack Range: {{champ.stats.attackrange}}<br>
+				Attack Speed Offset: {{champ.stats.attackspeedoffset}}<br>
+				Attack Speed Per Level: {{champ.stats.attackspeedperlevel}}<br>
+				Crit: {{champ.stats.crit}}<br>
+				Crit per level: {{champ.stats.critperlevel}}<br>
+				HP: {{champ.stats.hp}}<br>
+				HP per Level: {{champ.stats.hpperlevel}}<br>
+				HP Regen: {{champ.stats.hpregen}}<br>
+				HP Regen per Level: {{champ.stats.hpregenperlevel}}<br>
+				Movement Speed: {{champ.stats.movespeed}}<br>
+				MP: {{champ.stats.mp}}<br>
+				MP per Level: {{champ.stats.mpperlevel}}<br>
+				MP Regen: {{champ.stats.mpregen}}<br>
+				MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
+				Spell Block: {{champ.stats.spellblock}}<br>
+				Spell Block per Level: {{champ.stats.spellblockperlevel}}
+			</div>
         </div><br><br>
     </div>
 
@@ -97,7 +99,8 @@
 			Spell Block per Level:<br><br><br>
     	</div>
     	<div id="stat-numbers">
-			<span ng-repeat="stat in ChampCtrl.totalStats">{{stat}}</span>
+			<span ng-repeat="stat in ChampCtrl.totalStats">
+			{{stat.armor}}</span>
     	</div>
 	</div>
 

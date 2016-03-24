@@ -8,8 +8,20 @@ body {
 /*****************/
 
 .champ-div {
-	width: 200px;
+	width: 150px;
 	display: inline-block;
+	position: relative;
+}
+.champ-div:hover .indiv-stat{
+	padding: 1em;
+	font-size: .8rem;
+	display: block;
+	position: absolute;
+	width: 200px;
+	top: 80;
+	left: 80;
+	background: rgba(255, 250, 250, 0.7);
+	z-index: 1000;
 }
 
 #champ-main {
@@ -60,4 +72,8 @@ body {
 	width: 20px;
 	display: inline-block;
 	vertical-align: top;
+}
+
+.indiv-stat {
+	display: none;
 }
