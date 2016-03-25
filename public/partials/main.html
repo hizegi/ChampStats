@@ -77,13 +77,12 @@
 			{{formatNumber(stat)}}</span>
     	</div>
 
-    	<div ng-if="user" ng-click="ChampCtrl.addTeam()">
+    	<div ng-if="user">
     		 <form ng-if="ChampCtrl.full" id='addTeam'>
                     <strong>Team Name:</strong>
                     <input type='text' ng-model='ChampCtrl.name' placeholder='Team Name'/>
                     <button ng-click='ChampCtrl.addTeam()'>Save This Team</button>
              </form>
-    
     	</div>
 
     	<div ng-if="!user">

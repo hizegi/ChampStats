@@ -2,7 +2,7 @@ var app = angular.module('champ', ['ngRoute']);
 
 console.log("I WORK CHAMP CONTROLLER")
 
-app.controller('ChampController', ['$http', '$scope', function($http, $scope){
+app.controller('ChampController', ['$http', '$scope', '$rootScope', function($http, $scope, $rootScope){
 	this.loading = true;
 	this.champs = [];
 	this.champ_id = "";
@@ -12,6 +12,7 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 	this.totalStats = [];
 	this.full = false;
 	this.statsObj = {};
+	// userID = $rootScope.user._id;
 
 	// $http.get('/champ').then(
 	// 	//success
@@ -93,8 +94,17 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 
 	//this saves the team to the database
 	this.addTeam = function(){
-		// $http.post("/user/" + userID + "/team", {})
-		console.log("Team Saved --- not yet!")
+		var userID = $rootScope.user._id;
+		$http.post("/user/" + userID + "/team", {name: this.name, userid: userID, champs: controller.choice}).then(
+			function(response){
+				console.log(response)
+			},
+			function(err){
+				console.log(err)
+			});
+
+		console.log(this.name)
+		console.log(controller.choice)
 	}//ends save()
 
 	//iterates obj and sums all values
@@ -109,6 +119,7 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 			// console.log("This is the STATS OBJECT: ", controller.statsObj);
 		});
 
+		//if 5 champs are selected, this gives option to save the team
 		if (controller.choice.length == 5) {
 			controller.full = true;
 		} else {

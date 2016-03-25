@@ -58,14 +58,14 @@ router.post('/:id/team', function(req, res){
     console.log(req.params.id);
     console.log(req.body);   
     User.findById(req.params.id, function(err, user){
-        var newLocation = new Location(req.body);
-            console.log("new location ");
-        newLocation.save(function(err){
+        var newTeam = new Team(req.body);
+            console.log("CREATING TEAM: Found USER");
+        newTeam.save(function(err){
             
-        user.location.push(newLocation);
+        user.team.push(newTeam);
         // var bla = User.Location;
         //  bla.push(newLocation);
-        console.log("new location added");
+        console.log("new team saved.. check MONGO");
         //push location into locations.user
         //save user
         user.save(function(err, user){
