@@ -2,7 +2,7 @@ var app = angular.module('champ', ['ngRoute']);
 
 console.log("I WORK CHAMP CONTROLLER")
 
-app.controller('ChampController', ['$http', '$scope', '$rootScope', function($http, $scope, $rootScope){
+app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location', function($http, $scope, $rootScope, $location){
 	this.loading = true;
 	this.champs = [];
 	this.champ_id = "";
@@ -94,9 +94,12 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', function($ht
 
 	//this saves the team to the database
 	this.addTeam = function(){
+		console.log("This is what's in controller.choice: ", controller.choice)
 		var userID = $rootScope.user._id;
-		$http.post("/user/" + userID + "/team", {name: this.name, userid: userID, champs: controller.choice}).then(
+		$http.post("/user/" + userID + "/team", {name: this.name, userid: userID, champ: controller.choice, stats: controller.statsObj}).then(
 			function(response){
+				//redirect to Teams Page
+				$location.path('/user/' + userID + '/team') ;
 				console.log(response)
 			},
 			function(err){

@@ -5,7 +5,8 @@ var teamSchema = new mongoose.Schema({
 
 	name: String,
 	userId: String,
-	champ: []
+	champ: [],
+	stats: {}
 
 });
 

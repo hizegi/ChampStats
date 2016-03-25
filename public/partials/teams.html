@@ -1,1 +1,14 @@
-<h1> THIS IS YOUR TEAMS</h1>
+<section id="champ-wrapper" ng-controller="TeamController as TeamCtrl">
+	<h1> THESE ARE {{user.username}}'S TEAMS</h1>
+
+	<div id="team-div">
+
+		{{TeamCtrl.message}}
+
+		<ul>
+			<li ng-repeat="team in TeamCtrl.teams">{{team}}</li>
+		</ul>
+
+	</div>
+
+</section>
