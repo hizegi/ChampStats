@@ -5,9 +5,14 @@
 
 		{{TeamCtrl.message}}
 
-		<ul>
+	
 			<div ng-repeat="team in TeamCtrl.teams track by $index">
-				<h1> {{team.name}} <h1>
+				<h1> {{team.name}} </h1>
+
+					<div class="team-images">
+						<img ng-repeat="champ in team.champ" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
+					</div>
+
 	            Armor: {{team.stats.armor}}<br>
 	            Armor Per Level: {{team.stats.armorperlevel}}<br>
 	            Attack Damage: {{team.stats.attackdamage}}<br>
@@ -29,8 +34,9 @@
 				Spell Block: {{team.stats.spellblock}}<br>
 				Spell Block per Level: {{team.stats.spellblockperlevel}}
 			</div>
-		</ul>
+		
 
 	</div>
 
 </section>
+
