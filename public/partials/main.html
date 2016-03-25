@@ -9,7 +9,12 @@
 
     <div id="champ-wrapper" >
 
+    	<div ng-if="ChampCtrl.loading">
+    		<iframe src="//giphy.com/embed/uR6julmSW90mk?html5=true" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><h2>LOADING....</h2></div>
+
         <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
+
+       
            <h3>{{champ.name}}</h3>
            	<img ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
             <div class="indiv-stat">
@@ -41,6 +46,7 @@
 
     <div id="team-wrapper">
     	<h3>Assemble Your Team</h3>
+    	<h4>Total Team Stats:</h4>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
     			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">

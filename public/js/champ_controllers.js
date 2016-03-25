@@ -3,6 +3,7 @@ var app = angular.module('champ', ['ngRoute']);
 console.log("I WORK CHAMP CONTROLLER")
 
 app.controller('ChampController', ['$http', '$scope', function($http, $scope){
+	this.loading = true;
 	this.champs = [];
 	this.champ_id = "";
 	var controller = this;
@@ -29,6 +30,7 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 	// + make another HTTP request for champ info based on ID to display on page
 	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
 	.then(
+
 		function(response){
 
 			for (var key in response.data.data){
@@ -40,20 +42,17 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 								controller.champ_id = obj[prop]
 								// console.log(controller.champ_id)
 
-
 								$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id +"?champData=stats&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
 									.then(
 										function(response){
+											//de-activate loading message
+											controller.loading = false;
+
 											controller.champs.push(response.data);
-
-											// console.log(controller.champ_ids)
-
 										},
 										function(err){
 											console.log(err)
 									}); //ends http request
-
-
 							}
 						}
 					}
