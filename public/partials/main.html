@@ -46,7 +46,6 @@
 
     <div id="team-wrapper">
     	<h3>Assemble Your Team</h3>
-    	<h4>Total Team Stats:</h4>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
     			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
@@ -78,12 +77,17 @@
 			{{formatNumber(stat)}}</span>
     	</div>
 
-    	<div ng-if="user">
-    		SAVE YOUR TEAM
+    	<div ng-if="user" ng-click="ChampCtrl.addTeam()">
+    		 <form ng-if="ChampCtrl.full" id='addTeam'>
+                    <strong>Team Name:</strong>
+                    <input type='text' ng-model='ChampCtrl.name' placeholder='Team Name'/>
+                    <button ng-click='ChampCtrl.addTeam()'>Save This Team</button>
+             </form>
+    
     	</div>
 
     	<div ng-if="!user">
-    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save this team!
+    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save your teams!
     	</div>
 	</div>
 

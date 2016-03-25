@@ -10,7 +10,7 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 	this.choice = [];
 	//CUMULATIVE STATS ARRAYS
 	this.totalStats = [];
-
+	this.full = false;
 	this.statsObj = {};
 
 	// $http.get('/champ').then(
@@ -91,8 +91,15 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 		repopulate();
 	}//ends remove()
 
+	//this saves the team to the database
+	this.addTeam = function(){
+		// $http.post("/user/" + userID + "/team", {})
+		console.log("Team Saved --- not yet!")
+	}//ends save()
+
 	//iterates obj and sums all values
 	var repopulate = function() {
+
 		controller.totalStats.forEach(function(obj){
 			for (var key in obj) {
 				if (obj.hasOwnProperty(key)){
@@ -101,6 +108,12 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 			}
 			// console.log("This is the STATS OBJECT: ", controller.statsObj);
 		});
+
+		if (controller.choice.length == 5) {
+			controller.full = true;
+		} else {
+			controller.full = false;
+		}
 	}; //ends repopulate()
 
 	//this turns angular's numbers in to 2 decimal points
@@ -108,6 +121,7 @@ app.controller('ChampController', ['$http', '$scope', function($http, $scope){
 	    return Math.round(i * 100)/100; 
 	}
 	
+
 
 
 
