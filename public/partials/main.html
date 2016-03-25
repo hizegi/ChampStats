@@ -1,10 +1,76 @@
-<main>
 
-    <ul ng-controller="ChampController as ChampCtrl">
-        <li ng-repeat="champ in ChampCtrl.champs">
-            Name: {{champ.name}} the {{champ.title}}, ID: {{champ.id}}
+<main id="champ-main" ng-controller="ChampController as ChampCtrl">
+
+	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS</h1>
+
+	<h2>Search Champions</h2>
+	<input type="text" ng-model="searchBox">
+	<p>Click on a champ to add to your team</p>
+
+    <div id="champ-wrapper" >
+
+        <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
+           <h3>{{champ.name}}</h3>
+           	<img ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
+            <div class="indiv-stat">
+            	<strong> {{champ.name}} the {{champ.title}}</strong><br>
+	            Armor: {{champ.stats.armor}}<br>
+	            Armor Per Level: {{champ.stats.armorperlevel}}<br>
+	            Attack Damage: {{champ.stats.attackdamage}}<br>
+				Attack Damage per Level: {{champ.stats.attackdamageperlevel}}<br>
+				Attack Range: {{champ.stats.attackrange}}<br>
+				Attack Speed Offset: {{champ.stats.attackspeedoffset}}<br>
+				Attack Speed Per Level: {{champ.stats.attackspeedperlevel}}<br>
+				Crit: {{champ.stats.crit}}<br>
+				Crit per level: {{champ.stats.critperlevel}}<br>
+				HP: {{champ.stats.hp}}<br>
+				HP per Level: {{champ.stats.hpperlevel}}<br>
+				HP Regen: {{champ.stats.hpregen}}<br>
+				HP Regen per Level: {{champ.stats.hpregenperlevel}}<br>
+				Movement Speed: {{champ.stats.movespeed}}<br>
+				MP: {{champ.stats.mp}}<br>
+				MP per Level: {{champ.stats.mpperlevel}}<br>
+				MP Regen: {{champ.stats.mpregen}}<br>
+				MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
+				Spell Block: {{champ.stats.spellblock}}<br>
+				Spell Block per Level: {{champ.stats.spellblockperlevel}}
+			</div>
+        </div><br><br>
+    </div>
 
 
-        </li>
-    </ul>
+    <div id="team-wrapper">
+    	<h3>Assemble Your Team</h3>
+    	<div id="team-pics">
+    		<div ng-if="ChampCtrl.choice">
+    			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
+    		</div>
+    	</div>
+    	<div id="team-stats">
+         	Armor: <br>
+            Armor Per Level:<br>
+            Attack Damage:<br>
+			Attack Damage per Level:<br>
+			Attack Range:<br>
+			Attack Speed Offset:<br>
+			Attack Speed Per Level: <br>
+			Crit: <br>
+			Crit per level: <br>
+			HP: <br>
+			HP per Level: <br>
+			HP Regen: <br>
+			HP Regen per Level: <br>
+			Movement Speed: <br>
+			MP: <br>
+			MP per Level: <br>
+			MP Regen: <br>
+			MP Regen Per Level: <br>
+			Spell Block:<br><br><br>
+    	</div>
+    	<div id="stat-numbers">
+			<span ng-repeat="stat in ChampCtrl.statsObj">
+			{{formatNumber(stat)}}</span>
+    	</div>
+	</div>
+
 </main>

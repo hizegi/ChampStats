@@ -7,7 +7,7 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
-require('dotenv').load();
+
 // var route = require('angular-route');
 
 //setting up port/DB, requiring mongoose
