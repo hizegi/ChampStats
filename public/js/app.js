@@ -1,5 +1,5 @@
 
-var app = angular.module('champApp', ['ngRoute', 'champ']);
+var app = angular.module('champApp', ['ngRoute', 'champ', 'user-form']);
 
 console.log("i work");
 // var app = angular.module("champApp", ["ngRoute", "user-form", "location-form", 'main']);

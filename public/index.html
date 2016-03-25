@@ -5,6 +5,7 @@
 	<title>League of Legends - Team Champ Stats</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+	<script src="js/userform.js" charset="utf-8"></script>
     <script src="js/champ_controllers.js" charset="utf-8"></script>
     <script src='js/champ_directives.js'></script>
     <script src="js/app.js" charset="utf-8"></script>
@@ -16,11 +17,11 @@
 </head>
 <body>
 
-
 	<header>
 		<nav>
 			<ul>
 				<li><a href="/">home</a>
+				<li ng-if='!user'><a href="/signup">Sign Up</a>
 				<li ng-if='user'><a href="/teams">Your Teams</a>
 				<li ng-if='user'><a href="/" ng-click='logoutUser()'>Logout</a></li>
 				<li ng-if='user'><a href="/profile">Account</a></li>
