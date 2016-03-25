@@ -2,7 +2,6 @@ var app = angular.module('user-form', ['ngRoute']);
 
 app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http, $scope, $location, $rootScope, $routeParams){ //location changes the hash values in the url
     var controller = this;
-    $rootScope.dudeName = "";
     this.password = null;
     this.id = $routeParams.id;
 
@@ -10,18 +9,20 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
     $scope.addUser = function() {
         var uname = $scope.username;
         var pword = $scope.password;
+        var email = $scope.email;
         console.log('USER NAME ' + uname);
         console.log('PASSWORD ' + pword);
+        console.log('EMAIL:', email);
 
         //POST THE USER INFO
-        $http.post('/user/signup', {username : uname, password : pword}).then(function(response){
+        $http.post('/user/signup', {username : uname, password : pword, email : email}).then(function(response){
 
             var userID = response.data._id;
-            // console.log(controller)
+
             //This will now post to the user ID
             $location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular    
 
-                //once user is signed up, pull up user info immediately        
+             //once user is signed up, pull up user info immediately        
             $http.get("/user/" + userID).then(function(response){
                 console.log("This is the response.data.username ", response.data.username);
                 console.log("This is the username through Scope", $scope.username);
@@ -40,10 +41,10 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
         console.log('WORKING!!!');
     //need to run an ajax POST call to authenticate user name and password and have the server authenticate then
     //$rooteScope is a super global variable ... attaches all of your properties to a global object
-        var uname = $scope.username;
+        var email = $scope.email;
         var pword = $scope.password;
-        console.log('NAME ' + this.username + ' PASSWORD ' +  this.password);
-        $http.post('/user/login', {username: uname, password : pword}).then(function(response){
+        console.log('EMAIL ' + this.email+ ' PASSWORD ' +  this.password);
+        $http.post('/user/login', {email: email, password : pword}).then(function(response){
             
             console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
             var userID = response.data._id;

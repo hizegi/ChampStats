@@ -1,7 +1,7 @@
 
 <main id="champ-main" ng-controller="ChampController as ChampCtrl">
 
-	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS</h1>
+	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS {{user.username | uppercase}}</h1>
 
 	<h2>Search Champions</h2>
 	<input type="text" ng-model="searchBox">
@@ -70,6 +70,14 @@
     	<div id="stat-numbers">
 			<span ng-repeat="stat in ChampCtrl.statsObj">
 			{{formatNumber(stat)}}</span>
+    	</div>
+
+    	<div ng-if="user">
+    		SAVE YOUR TEAM
+    	</div>
+
+    	<div ng-if="!user">
+    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save this team!
     	</div>
 	</div>
 

@@ -42,6 +42,9 @@ app.use(passport.session());
 var champController = require('./controllers/champController.js');
 app.use('/champ', champController);
 
+var userController = require('./controllers/userController.js');
+app.use('/user', userController);
+
 //mongoose
 mongoose.connect(mongoURI);
 

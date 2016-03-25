@@ -22,5 +22,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'partials/signup.html',
             controller: 'ChampController',
             controllerAs: 'ChampCtrl'
-        })
+        }).
+        when('/login', {
+            templateUrl: 'partials/userloginform.html',
+            controller: 'ChampController',
+            controllerAs: 'ChampCtrl'
+        }).
+        when('/user/:id', {
+            templateUrl: 'partials/main.html',
+            controller: 'FormController', 
+            controllerAs: 'formCtrl'
+    })
 }]);

@@ -35,7 +35,7 @@ router.get("/:id", function(req, res){
 //********************
 //Post new user
 router.post('/signup', passport.authenticate('local-signup', {
-    failureRedirect : '/TESTPAGE' // redirect to the signup page if error
+    failureRedirect : '/signup' // redirect to the signup page if error
             }), function(req, res) {
         console.log('SIGNUP AUTHENTICATION WORKED');
         res.send(req.user);
@@ -45,19 +45,15 @@ router.post('/signup', passport.authenticate('local-signup', {
 
 //login
 router.post('/login', passport.authenticate('local-login',{
-    failureRedirect: '/TESTPAGE'}), function(req,res){
+    failureRedirect: '/'}), function(req,res){
     console.log('LOGGGED IN, YA');
     res.send(req.user);
 });
 
-//search results
-router.post('/search', function(req, res){
-    console.log("this is SEARCH: req.body.input ", req.body.input)
-    res.send(req.body.input)
-})
+
 
 //new location
-router.post('/:id/location', function(req, res){
+router.post('/:id/team', function(req, res){
     console.log('WORKING');
     console.log(req.params.id);
     console.log(req.body);   
@@ -86,39 +82,7 @@ router.post('/:id/addwine', function(req, res){
     console.log("this was the location id request: ", req.body.locationid);
     console.log("this was the wine request: ", req.body.wine);
     console.log("this was the wine request's NAME: ", req.body.wine.Name);
-
-    User.findById(req.params.id, function(err, user){
-
-        //     console.log("Found user: ", user);
-            // console.log("Found location: ", location);
-            var newWine = new Wine({
-                name: req.body.wine.Name,
-                url: req.body.wine.Url,
-                onHand: 0,
-                userId: req.params.id,
-                type: req.body.wine.Varietal.Name
-            })
-
-            //save the new Wine
-            newWine.save(function(err, wine){
-                console.log("WINE WAS SAVED, CHECK MONGO")
-             })//ends newWine.save
-
-            console.log(user.location)
-
-            //for every location this user has, push the wine into this location
-            for (var i = 0; i < user.location.length; i++){
-                if (user.location[i]._id == req.body.locationid){
-                    user.location[i].wine.push(newWine);
-                }
-            }
-
-            //save the user
-            user.save();    
-
-            
-    })//ends find User by ID
-})//ends router.post
+});
 
 
 //********************
@@ -135,7 +99,7 @@ router.put('/:id', function(req, res) {
     });
 });
 
-router.put('/:id/:location_id', function(req,res){
+router.put('/:id/:team_id', function(req,res){
     Location.findByIdAndUpdate(req.params.location_id, req.body, function(err,location){
         console.log(location.name);
         console.log(req.body);
@@ -157,55 +121,13 @@ router.put('/:id/:location_id', function(req,res){
     });
 });
 
-//increment wine
-router.put('/:id/:location_name/:wine_index', function(req,res){
-    User.findById(req.params.id, function(err,user){
-        // console.log('THIS IS OUR USER >>>>>>' + user);
-        // console.log('THIS OUR USERS LOCs ' + user.location);
-        for (var i = 0; i < user.location.length; i++) {
-            if (user.location[i].name == req.params.location_name) {
-                // console.log(user.location[i].name);
-                // console.log(user.location[i].wine.length);
-                // console.log(user.location[i].wine[req.params.wine_index]);
-                // console.log(user.location[i].wine[req.params.wine_index].onHand);
-                user.location[i].wine[req.params.wine_index].onHand += 1;
-                user.save(function(err){
-                    res.send(user);
-                });
-            };
-        };
-    });
-});
 
-//decrement wine
-router.put('/decrement/:id/:location_name/:wine_index', function(req,res){
-    User.findById(req.params.id, function(err,user){
-        // console.log('THIS IS OUR USER /////' + user);
-        // console.log('THIS OUR USERS LOCs //////' + user.location);
-        for (var i = 0; i < user.location.length; i++) {
-            if (user.location[i].name == req.params.location_name) {
-                // console.log(user.location[i].name);
-                // console.log(user.location[i].wine.length);
-                // console.log(user.location[i].wine[req.params.wine_index]);
-                // console.log(user.location[i].wine[req.params.wine_index].onHand);
-                if (user.location[i].wine[req.params.wine_index].onHand == 0) {
-                    res.send(user);
-                } else {
-                user.location[i].wine[req.params.wine_index].onHand -= 1;
-                    user.save(function(err){
-                        res.send(user);
-                    });
-                }
-            };
-        };
-    });
-});
 //********************
 // DELETE
 //********************
 
 //delete location
-router.delete('/:id/:location_id', function(req, res) {
+router.delete('/:id/:team_id', function(req, res) {
     // console.log('Deleted location');
     Location.findByIdAndRemove(req.params.location_id, function(err, location) {
         var locationID = req.params.location_id;
@@ -278,47 +200,3 @@ function isLoggedIn(req, res, next) {
 };
 
 module.exports = router;
-
-//////////
-//OLD CODE
-//////////
-//WORK ON THIS
-// router.get('/validate', function(req, res) {
-//     if (req.isAuthenticated()) {
-//         res.redirect('/users/' + req.user.id);
-//     } else {
-//         res.redirect('/users');
-//     }
-// });
-
-// // JSON
-// router.get('/json', function(req, res) {
-//     User.find({}, function(err, data) {
-//         res.send(data);
-//     });
-// });  
-// router.get("/:id", function(req, res) {
-//     //if user logged in matches req.params.id
-//     // res.locals.login = req.isAuthenticated();
-//         //find THAT user by ID
-//         console.log("This is the req.params.id", req.params.id)
-//         User.findById(req.params.id, function(err, data) { //curlies?
-//             //send back user object
-//             res.send(data);
-//             console.log("This is the user", data);
-//         });
-// });
-
-//Post new user
-// router.post('/', passport.authenticate('local-signup', {
-//     failureRedirect : '/users' // redirect to the signup page if error
-//             }), function(req, res) {
-//         res.redirect('/users/' + req.user.id);  //from passport.js
-// });
-//edit location
-// router.put('/:id/location', function(req, res){
-//         console.log(req.params.id);
-//         Location.findByIdAndUpdate(req.params.id, req.body, function(err, user){
-//     res.redirect('/users/' + req.params.id);
-//     });
-// });
