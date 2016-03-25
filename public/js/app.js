@@ -25,8 +25,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         }).
         when('/login', {
             templateUrl: 'partials/userloginform.html',
-            controller: 'ChampController',
-            controllerAs: 'ChampCtrl'
+            controller: 'FormController',
+            controllerAs: 'FormCtrl'
         }).
         when('/user/:id', {
             templateUrl: 'partials/main.html',
