@@ -6,7 +6,29 @@
 		{{TeamCtrl.message}}
 
 		<ul>
-			<li ng-repeat="team in TeamCtrl.teams">{{team}}</li>
+			<div ng-repeat="team in TeamCtrl.teams track by $index">
+				<h1> {{team.name}} <h1>
+	            Armor: {{team.stats.armor}}<br>
+	            Armor Per Level: {{team.stats.armorperlevel}}<br>
+	            Attack Damage: {{team.stats.attackdamage}}<br>
+				Attack Damage per Level: {{team.stats.attackdamageperlevel}}<br>
+				Attack Range: {{team.stats.attackrange}}<br>
+				Attack Speed Offset: {{team.stats.attackspeedoffset}}<br>
+				Attack Speed Per Level: {{team.stats.attackspeedperlevel}}<br>
+				Crit: {{team.stats.crit}}<br>
+				Crit per level: {{team.stats.critperlevel}}<br>
+				HP: {{team.stats.hp}}<br>
+				HP per Level: {{team.stats.hpperlevel}}<br>
+				HP Regen: {{team.stats.hpregen}}<br>
+				HP Regen per Level: {{team.stats.hpregenperlevel}}<br>
+				Movement Speed: {{team.stats.movespeed}}<br>
+				MP: {{team.stats.mp}}<br>
+				MP per Level: {{team.stats.mpperlevel}}<br>
+				MP Regen: {{team.stats.mpregen}}<br>
+				MP Regen Per Level: {{team.stats.mpregenperlevel}}<br>
+				Spell Block: {{team.stats.spellblock}}<br>
+				Spell Block per Level: {{team.stats.spellblockperlevel}}
+			</div>
 		</ul>
 
 	</div>

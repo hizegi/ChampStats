@@ -10,7 +10,9 @@
     <div id="champ-wrapper" >
 
     	<div ng-if="ChampCtrl.loading">
-    		<iframe src="//giphy.com/embed/uR6julmSW90mk?html5=true" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><h2>LOADING....</h2></div>
+    		<h2>LOADING CHAMP DATA....</h2>
+    		<iframe src="//giphy.com/embed/uR6julmSW90mk?html5=true" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    	</div>
 
         <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
 
