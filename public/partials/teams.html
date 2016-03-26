@@ -1,39 +1,38 @@
-<section id="champ-wrapper" ng-controller="TeamController as TeamCtrl">
+<section id="all-teams-wrapper" ng-controller="TeamController as TeamCtrl">
 	<h1> THESE ARE {{user.username}}'S TEAMS</h1>
 
-	<div id="team-div">
+	<h2>Search Your Teams</h2>
+	<input type="text" ng-model="searchBox">
 
-		{{TeamCtrl.message}}
+	<div id="user-teams">
+		<div ng-repeat="team in TeamCtrl.teams | filter:searchBox track by $index ">
+			<h1> {{team.name}} </h1>
 
-	
-			<div ng-repeat="team in TeamCtrl.teams track by $index">
-				<h1> {{team.name}} </h1>
-
-					<div class="team-images">
-						<img ng-repeat="champ in team.champ" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
-					</div>
-
-	            Armor: {{team.stats.armor}}<br>
-	            Armor Per Level: {{team.stats.armorperlevel}}<br>
-	            Attack Damage: {{team.stats.attackdamage}}<br>
-				Attack Damage per Level: {{team.stats.attackdamageperlevel}}<br>
-				Attack Range: {{team.stats.attackrange}}<br>
-				Attack Speed Offset: {{team.stats.attackspeedoffset}}<br>
-				Attack Speed Per Level: {{team.stats.attackspeedperlevel}}<br>
-				Crit: {{team.stats.crit}}<br>
-				Crit per level: {{team.stats.critperlevel}}<br>
-				HP: {{team.stats.hp}}<br>
-				HP per Level: {{team.stats.hpperlevel}}<br>
-				HP Regen: {{team.stats.hpregen}}<br>
-				HP Regen per Level: {{team.stats.hpregenperlevel}}<br>
-				Movement Speed: {{team.stats.movespeed}}<br>
-				MP: {{team.stats.mp}}<br>
-				MP per Level: {{team.stats.mpperlevel}}<br>
-				MP Regen: {{team.stats.mpregen}}<br>
-				MP Regen Per Level: {{team.stats.mpregenperlevel}}<br>
-				Spell Block: {{team.stats.spellblock}}<br>
-				Spell Block per Level: {{team.stats.spellblockperlevel}}
+			<div class="team-images">
+				<img ng-repeat="champ in team.champ" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
 			</div>
+
+	        Armor: {{team.stats.armor}}<br>
+	        Armor Per Level: {{team.stats.armorperlevel}}<br>
+	        Attack Damage: {{team.stats.attackdamage}}<br>
+			Attack Damage per Level: {{team.stats.attackdamageperlevel}}<br>
+			Attack Range: {{team.stats.attackrange}}<br>
+			Attack Speed Offset: {{team.stats.attackspeedoffset}}<br>
+			Attack Speed Per Level: {{team.stats.attackspeedperlevel}}<br>
+			Crit: {{team.stats.crit}}<br>
+			Crit per level: {{team.stats.critperlevel}}<br>
+			HP: {{team.stats.hp}}<br>
+			HP per Level: {{team.stats.hpperlevel}}<br>
+			HP Regen: {{team.stats.hpregen}}<br>
+			HP Regen per Level: {{team.stats.hpregenperlevel}}<br>
+			Movement Speed: {{team.stats.movespeed}}<br>
+			MP: {{team.stats.mp}}<br>
+			MP per Level: {{team.stats.mpperlevel}}<br>
+			MP Regen: {{team.stats.mpregen}}<br>
+			MP Regen Per Level: {{team.stats.mpregenperlevel}}<br>
+			Spell Block: {{team.stats.spellblock}}<br>
+			Spell Block per Level: {{team.stats.spellblockperlevel}}
+	</div>
 		
 
 	</div>

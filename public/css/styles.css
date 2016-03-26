@@ -24,6 +24,10 @@ body {
 	z-index: 1000;
 }
 
+.champ-div:hover {
+	cursor: pointer;
+}
+
 #champ-main {
 	width: 100%;
 }
@@ -76,4 +80,27 @@ body {
 
 .indiv-stat {
 	display: none;
+}
+
+
+/*****************/
+/* TEAMS PAGE    */
+/*****************/
+
+
+#user-teams {
+	width: 100%;
+}
+
+#all-teams-wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.team-images img {
+	display: inline-block;
+	width: 20%;
+	box-sizing: border-box;
+	max-width: 200px;
+	margin: 2px;
 }
