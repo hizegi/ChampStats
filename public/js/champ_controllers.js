@@ -28,7 +28,6 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 	//HTTP Request to RIOT API
 	// + get champ ID
-	// + make another HTTP request for champ info based on ID to display on page
 	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
 	.then(
 
@@ -43,17 +42,7 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 								controller.champ_id = obj[prop]
 								// console.log(controller.champ_id)
 
-								$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id +"?champData=stats&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
-									.then(
-										function(response){
-											//de-activate loading message
-											controller.loading = false;
-
-											controller.champs.push(response.data);
-										},
-										function(err){
-											console.log(err)
-									}); //ends http request
+								getChamps();
 							}
 						}
 					}
@@ -63,6 +52,31 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 		function(err){
 			console.log(err)
 		}); //ends HTTP Request
+
+	// + make another HTTP request for champ info based on ID to display on page
+	var getChamps = function(){
+		$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id +"?champData=stats&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
+		.then(
+			function(response){
+				//de-activate loading message
+				controller.loading = false;
+
+				controller.champs.push(response.data);
+				console.log("this is controller.champs: ", controller.champs)
+
+
+				getTags();
+
+			},
+			function(err){
+				console.log(err)
+		}); //ends http request
+	}//ends getChamps();
+
+	var getTags = function(){
+		console.log("Get Tags Fired");
+		// $http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=tags&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
+	}//ends getTags();
 
 	//this will add the champ to the champ side table, prevents duplicates
 	// + push stats info to be accumulated

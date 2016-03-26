@@ -6,7 +6,6 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
 	var controller = this;
 	var userID = $rootScope.user._id;
 	this.teams = [];
-	this.stats = [];
 	this.message = "Hello";
 
 	//grab all the teams from the user, push it into the locations array []
@@ -20,15 +19,12 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
             console.log("This is the teams array: ", controller.teams)
         }
 
-        // //for each team in the array, push teams stats into array
-        // for (var i = 0; i < response.data.team.length; i++) {
-        //     controller.teams.push(response.data.team[i].stats)
-
-        //     console.log("This is the stats array: ", controller.stats)
-        // }
-
     })
 
+    //this turns angular's numbers in to 2 decimal points
+    $scope.formatNumber = function(i) {
+        return Math.round(i * 100)/100; 
+    }
 
 
 }]);//ends TeamController()
