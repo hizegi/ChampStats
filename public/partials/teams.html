@@ -32,7 +32,16 @@
 			MP Regen Per Level: {{team.stats.mpregenperlevel}}<br>
 			Spell Block: {{team.stats.spellblock}}<br>
 			Spell Block per Level: {{team.stats.spellblockperlevel}}
-	</div>
+
+			<div id="edit-team">
+
+                <span class="location-name">EDIT TEAM NAME: </span>
+                <input type='text' ng-model="TeamCtrl.name" placeholder='{{team.name}}'>
+                <button ng-click='TeamCtrl.editTeam(team._id)'>Edit</button>
+                <button ng-click='TeamCtrl.deleteTeam(team._id)'>Delete</button>
+                <button ng-click="TeamCtrl.cancel()">Cancel</button>
+            </div>
+		</div>
 		
 
 	</div>

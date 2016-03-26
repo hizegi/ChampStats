@@ -37,5 +37,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		    templateUrl: 'partials/teams.html',
 		    controller: 'TeamController', 
 		    controllerAs: 'teamCtrl'
-	    })
+	    }).
+        when('/team/:id/', {
+            templateUrl: 'partials/teams.html',
+            controller: 'TeamController', 
+            controllerAs: 'teamCtrl'
+        })
 }]);

@@ -65,7 +65,7 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 				controller.champs.push(response.data);
 
-				console.log("This is controller.champs: ", controller.champs)
+				// console.log("This is controller.champs: ", controller.champs)
 			},
 			function(err){
 				console.log(err)
@@ -160,14 +160,11 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 		tag: $scope.filterOptions.champ[0]
 	};
 
+	//this is a custom filter to filter by Champ Role
 	$scope.customFilter = function (data) {
-
-		console.log("This is data length, ", data.tags.length)
 
 				var tagName = data.tags[0];
 
-				console.log($scope.filterItem.tag.tags)
-				
 			    if (tagName == $scope.filterItem.tag.tags) {
 			      return true;
 			    } else if ($scope.filterItem.tag.tags == "all") {

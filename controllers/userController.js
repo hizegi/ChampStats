@@ -63,10 +63,9 @@ router.post('/:id/team', function(req, res){
         newTeam.save(function(err){
             
         user.team.push(newTeam);
-        // var bla = User.Location;
-        //  bla.push(newLocation);
+
         console.log("new team saved.. check MONGO");
-        //push location into locations.user
+
         //save user
         user.save(function(err, user){
              //send user to client
@@ -100,18 +99,18 @@ router.put('/:id', function(req, res) {
 });
 
 router.put('/:id/:team_id', function(req,res){
-    Location.findByIdAndUpdate(req.params.location_id, req.body, function(err,location){
-        console.log(location.name);
-        console.log(req.body);
+    console.log("EDIT REQUEST RECEIVED")
+    Team.findByIdAndUpdate(req.params.team_id, req.body, function(err,team){
+        console.log("TEAM NAME: ", team.name);
+        console.log("REQ.BODY: ", req.body);
         User.findById(req.params.id, function(err,user){
             console.log(user);
-            console.log(user.location.length);
-            for (var i = 0; i < user.location.length; i++) {
-                if (user.location[i]._id == req.params.location_id) {
+            for (var i = 0; i < user.team.length; i++) {
+                if (user.team[i]._id == req.params.team_id) {
                     // user.location[i].name = req.body;
                     console.log('REQ BODY NAME ' + req.body.name);
-                    console.log('USER NAME ' + user.location[i].name);
-                    user.location[i].name = req.body.name;
+                    console.log('USER NAME ' + user.team[i].name);
+                    user.team[i].name = req.body.name;
                 }
             }
             user.save(function(err){
