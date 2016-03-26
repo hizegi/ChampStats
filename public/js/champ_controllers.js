@@ -160,17 +160,23 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 		tag: $scope.filterOptions.champ[0]
 	};
 
-	// $scope.customFilter = function (data) {
+	$scope.customFilter = function (data) {
 
-		// for (controller.champs.tag)
-	//     // if (controller.champs.tag.rating === $scope.filterItem.store.rating) {
-	//     //   return true;
-	//     // } else if ($scope.filterItem.store.rating === 6) {
-	//     //   return true;
-	//     // } else {
-	//     //   return false;
-	//     // }
-	//   };  
+		console.log("This is data length, ", data.tags.length)
+
+				var tagName = data.tags[0];
+
+				console.log($scope.filterItem.tag.tags)
+				
+			    if (tagName == $scope.filterItem.tag.tags) {
+			      return true;
+			    } else if ($scope.filterItem.tag.tags == "all") {
+			      return true;
+			    } else {
+			      return false;
+			    }
+		
+	  };  
 
 
 

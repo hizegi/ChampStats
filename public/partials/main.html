@@ -5,7 +5,7 @@
 
 	<h2>Search Champions</h2>
 	<input type="text" ng-model="searchBox">
-	<p>Click on a champ to add to your team</p>
+	<p ng-click="ChampCtrl.customFilter()">Click on a champ to add to your team</p>
 
 	 Filter:
     <select ng-model="filterItem.tag" ng-options="item.name for item in filterOptions.champ">
@@ -19,7 +19,7 @@
     		<iframe src="//giphy.com/embed/uR6julmSW90mk?html5=true" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     	</div>
 
-        <div class="champ-div" ng-repeat="champ in ChampCtrl.champs | filter:searchBox">
+        <div class="champ-div" data-ng-repeat="champ in ChampCtrl.champs | filter:searchBox | filter:customFilter">
 
        
            <h3>{{champ.name}}</h3>
@@ -46,7 +46,9 @@
 				MP Regen Per Level: {{champ.stats.mpregenperlevel}}<br>
 				Spell Block: {{champ.stats.spellblock}}<br>
 				Spell Block per Level: {{champ.stats.spellblockperlevel}}
-				Tags: <span ng-repeat="tag in champ.tags">{{tag}} </span>
+				Testing: {{champ.tags[0]}}
+
+				Tags: <span ng-repeat="tag in champ.tags ">{{tag}} </span>
 			</div>
         </div><br><br>
     </div>
