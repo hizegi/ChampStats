@@ -144,8 +144,33 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	    return Math.round(i * 100)/100; 
 	}
 	
+	$scope.filterOptions = {
+		champ: [
+		{id: 2, name: 'Show All', tags: "all"},
+		{id: 3, name: 'Marksman', tags: "Marksman"},
+		{id: 4, name: 'Mage', tags: "Mage"},
+		{id: 5, name: 'Fighter', tags: "Fighter"},
+		{id: 6, name: 'Tank', tags: "Tank"},
+		{id: 7, name: 'Support', tags: "Support"},
+		{id: 8, name: 'Assasin', tags: "Assassin"}
+		]
+	};
 
+	$scope.filterItem = {
+		tag: $scope.filterOptions.champ[0]
+	};
 
+	// $scope.customFilter = function (data) {
+
+		// for (controller.champs.tag)
+	//     // if (controller.champs.tag.rating === $scope.filterItem.store.rating) {
+	//     //   return true;
+	//     // } else if ($scope.filterItem.store.rating === 6) {
+	//     //   return true;
+	//     // } else {
+	//     //   return false;
+	//     // }
+	//   };  
 
 
 
