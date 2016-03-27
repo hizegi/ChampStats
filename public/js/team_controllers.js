@@ -65,10 +65,35 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
         console.log("clearform fired")
        // // Get the first form with the name
 
-       // var frm = document.getElementsByName('edit-team-form');
-       // console.log(frm)
-       // frm.reset();  // Reset
-       // return false; // Prevent page refresh
-}
+       var frm = document.getElementsByName('edit-team-form');
+       console.log(frm)
+       frm.reset();  // Reset
+       return false; // Prevent page refresh
+    }//ends clearForm()
+
+    //this deletes a team by ID
+    this.deleteTeam = function(teamid, index){
+    var userID = $rootScope.user._id;
+    var teamID = teamid;
+
+    console.log("This is teamId: ", teamID);
+    console.log("This is the index ", index)
+
+    $http.delete('/user/' + userID + '/' + teamID).then(
+        function(response){
+
+            for (var i = 0; i < controller.teams.length; i++){
+
+                if (controller.teams[i]._id == teamid){
+
+                    controller.teams.splice(i, 1);
+                }
+            }
+        },
+        function(err){
+            console.log(err);
+        });
+    }
+
 
 }]);//ends TeamController()

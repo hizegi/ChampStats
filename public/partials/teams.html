@@ -35,11 +35,11 @@
 
 			<div id="edit-team">
 
-				<form name="edit-team-form" ng-submit="TeamCtrl.clearForm()">
+				<form name="edit-team-form">
 	                <span class="team-name">EDIT TEAM NAME: </span>
 	                <input type='text' ng-model="TeamCtrl.name[$index]" placeholder='New Team Name'>
 	                <button ng-click='TeamCtrl.editTeam(team._id, $index)'>Edit</button>
-	                <button ng-click='TeamCtrl.deleteTeam(team._id)'>Delete</button>
+	                <button ng-click='TeamCtrl.deleteTeam(team._id, $index)'>Delete</button>
 	                <button ng-click="TeamCtrl.cancel()">Cancel</button>
 	            </form>
             </div>

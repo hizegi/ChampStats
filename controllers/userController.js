@@ -127,10 +127,10 @@ router.put('/:id/:team_id', function(req,res){
 
 //delete location
 router.delete('/:id/:team_id', function(req, res) {
-    // console.log('Deleted location');
-    Location.findByIdAndRemove(req.params.location_id, function(err, location) {
-        var locationID = req.params.location_id;
-        User.update({}, {$pull: { location : { _id : locationID }}}, {multi : false}, function(err,user){
+    console.log('Delete TEAM! Check Mongo');
+    Team.findByIdAndRemove(req.params.team_id, function(err, team) {
+        var teamID = req.params.team_id;
+        User.update({}, {$pull: { team : { _id : teamID }}}, {multi : false}, function(err,user){
             console.log(user);
             res.send(user);
         })

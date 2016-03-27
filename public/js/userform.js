@@ -44,10 +44,10 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
     //$rooteScope is a super global variable ... attaches all of your properties to a global object
         var email = $scope.email;
         var pword = $scope.password;
-        console.log('EMAIL ' + this.email + ' PASSWORD ' +  this.password);
+        
         $http.post('/user/login', {email: email, password : pword}).then(function(response){
             
-            console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
+            // console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
             var userID = response.data._id;
             // console.log(controller)
             //This will now post to the user ID
