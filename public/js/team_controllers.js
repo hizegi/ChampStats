@@ -8,6 +8,7 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
 	this.teams = [];
 	this.message = "Hello";
     this.name = [];
+    this.hasTeams = controller.teams.length;
 
 	//grab all the teams from the user, push it into the locations array []
     $http.get("/user/" + userID).then(function(response){
@@ -34,14 +35,13 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
         var teamID = teamid;
         var userID = $rootScope.user._id;
        
-       console.log("this is this: ", this)
         $http.put('/user/' + userID + '/' + teamID, { name : this.name[teamIndex]})
         .then(function(response){
-            console.log("This is response.data: ", response.data);
-            console.log("This is the controller.teams: ", controller.teams)
+            // console.log("This is response.data: ", response.data);
+            // console.log("This is the controller.teams: ", controller.teams)
             $http.get("/user/" + userID).then(function(response){
-            // $scope.locationCtrl.locations[index].name = response.data.location[index].name;
-            console.log("FOUND USER: ", response)
+
+            // console.log("FOUND USER: ", response)
 
             for (var i = 0; i < controller.teams.length; i++){
 
@@ -58,18 +58,7 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
         }, function(err){
             console.log(err);
         });
-
     }
-
-    this.clearForm = function () {
-        console.log("clearform fired")
-       // // Get the first form with the name
-
-       var frm = document.getElementsByName('edit-team-form');
-       console.log(frm)
-       frm.reset();  // Reset
-       return false; // Prevent page refresh
-    }//ends clearForm()
 
     //this deletes a team by ID
     this.deleteTeam = function(teamid, index){

@@ -5,6 +5,11 @@
 	<input type="text" ng-model="searchBox">
 
 	<div id="user-teams">
+		<div id="no-teams" ng-if="!TeamCtrl.hasTeams">
+			You have no teams!
+			<a href="/home"> Let's get started.</a>
+		</div>
+
 		<div ng-repeat="team in TeamCtrl.teams | filter:searchBox track by $index ">
 			<h1> {{team.name}} </h1>
 
