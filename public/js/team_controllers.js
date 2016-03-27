@@ -7,7 +7,7 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
 	var userID = $rootScope.user._id;
 	this.teams = [];
 	this.message = "Hello";
-    this.name = "";
+    this.name = [];
 
 	//grab all the teams from the user, push it into the locations array []
     $http.get("/user/" + userID).then(function(response){
@@ -27,24 +27,33 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
         return Math.round(i * 100)/100; 
     }
 
-    this.editTeam = function(teamid) {
+    //this is to update Team Name
+    this.editTeam = function(teamid, index) {
 
-
-        console.log(teamid);
-
-        // console.log($scope.locationCtrl.locations[index]._id);
-
+        var teamIndex = index;
         var teamID = teamid;
         var userID = $rootScope.user._id;
        
        console.log("this is this: ", this)
-        $http.put('/user/' + userID + '/' + teamID, { name : this.name})
+        $http.put('/user/' + userID + '/' + teamID, { name : this.name[teamIndex]})
         .then(function(response){
-            console.log(response);
-        //     $http.get("/user/" + userID).then(function(response){
-        //     $scope.locationCtrl.locations[index].name = response.data.location[index].name;
-            
-        // })
+            console.log("This is response.data: ", response.data);
+            console.log("This is the controller.teams: ", controller.teams)
+            $http.get("/user/" + userID).then(function(response){
+            // $scope.locationCtrl.locations[index].name = response.data.location[index].name;
+            console.log("FOUND USER: ", response)
+
+            for (var i = 0; i < controller.teams.length; i++){
+
+                if (controller.teams[i]._id == teamid){
+                    console.log("MATCH FOUND, response teamID: ", response.data.team[i]._id)
+                    console.log("MATCH FOUND, ctrller. teamID: ", controller.teams[i]._id)
+                    console.log("MATCH FOUND, Team Name: ", response.data.team[i].name)
+
+                    controller.teams[i].name = response.data.team[i].name
+                }
+            }
+        })
 
         }, function(err){
             console.log(err);
@@ -52,5 +61,14 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
 
     }
 
+    this.clearForm = function () {
+        console.log("clearform fired")
+       // // Get the first form with the name
+
+       // var frm = document.getElementsByName('edit-team-form');
+       // console.log(frm)
+       // frm.reset();  // Reset
+       // return false; // Prevent page refresh
+}
 
 }]);//ends TeamController()
