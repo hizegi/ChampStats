@@ -164,8 +164,9 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	$scope.customFilter = function (data) {
 
 				var tagName = data.tags[0];
+				var secondTag = data.tags[1];
 
-			    if (tagName == $scope.filterItem.tag.tags) {
+			    if ((tagName == $scope.filterItem.tag.tags) || (secondTag == $scope.filterItem.tag.tags)) {
 			      return true;
 			    } else if ($scope.filterItem.tag.tags == "all") {
 			      return true;

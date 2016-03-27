@@ -20,12 +20,12 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
             // console.log("This is the teams array: ", controller.teams)
         }
 
-    })
+    });
 
     //this turns angular's numbers in to 2 decimal points
     $scope.formatNumber = function(i) {
         return Math.round(i * 100)/100; 
-    }
+    };
 
     //this is to update Team Name
     this.editTeam = function(teamid, index) {
