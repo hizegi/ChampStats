@@ -43,7 +43,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             controller: 'TeamController', 
             controllerAs: 'teamCtrl'
         }).
-        when('/profile', {
+        when('/user/:id/profile', {
             templateUrl: 'partials/profile.html',
             controller: 'UserController', 
             controllerAs: 'UserCtrl'

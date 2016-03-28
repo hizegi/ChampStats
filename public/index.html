@@ -28,7 +28,7 @@
 				<li ng-if='!user'><a href="/login">Log In</a>
 				<li ng-if='user'><a href="/teams">Your Teams</a>
 				<li ng-if='user'><a href="/" ng-click='logoutUser()'>Logout</a></li>
-				<li ng-if='user'><a href="/profile">Profile</a></li>
+				<li ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a></li>
 			</ul>
 		</nav>
 	</header>
