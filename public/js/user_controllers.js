@@ -15,7 +15,6 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
 	//grab user data
     $http.get("/user/" + userID).then(function(response){
 
-	    console.log(response.data);
 	    controller.about = response.data.about;
 	    controller.main = response.data.main;
 	    controller.lane = response.data.lane;
