@@ -4,16 +4,87 @@ body {
 }
 
 /*****************/
-/* NAV BAR       */
+/* NAV BAR STUFF */
 /*****************/
-ul {
-	list-style-type: none
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+}
+ 
+nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+  width: 200px;
+}
+ 
+nav a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+nav a:hover {
+  background-color: #005f5f;
+}
+ 
+nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
 }
 
-li {
-	display: inline-block;
+#profile{
+	position: relative;
 }
 
+#dropdown1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: black;
+    display:none;
+    height: 60px;
+    width: 200px;
+    background-color: white;
+    z-index: 20;
+ }
+
+#dropdown2 {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    color: white;
+    display:none;
+    height: 60px;
+    width: 200px;
+    background-color: white;
+    z-index: 20;
+ }
+
+.dropdown a {
+	color: black;
+}
+
+ #profile:hover #dropdown1{
+ 	display:block;
+ }
+
+  #profile:hover #dropdown2{
+ 	display:block;
+ }
 /*****************/
 /* CHAMP SELECT  */
 /*****************/
@@ -116,44 +187,9 @@ li {
 }
 
 
-/***********************/
-body {
-  margin: 0;
-  padding: 0;
-  background: #ccc;
-}
- 
-nav ul {
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-nav li {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
-  line-height: 40px;
-  height: 40px;
-  border-bottom: 1px solid #888;
-}
- 
-nav a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  transition: .3s background-color;
-}
- 
-nav a:hover {
-  background-color: #005f5f;
-}
- 
-nav a.active {
-  background-color: #fff;
-  color: #444;
-  cursor: default;
-}
+
+
+
  
 @media screen and (min-width: 600px) {
   nav li {
@@ -168,6 +204,7 @@ nav a.active {
   nav li {
     display: inline-block;
     margin-right: -4px;
+    width: 200px;
   }
  
   /* Options 2 - Float
