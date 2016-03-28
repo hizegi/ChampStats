@@ -1,8 +1,8 @@
 <header>
 	<nav>
 		<ul>
-			<li><a class="active" href="/">home</a>
-			<li ng-if='!user'><a href="/signup">Sign Up</a>
+			<li><a href="/">home</a>
+			<li ng-if='!user'><a class="active" href="/signup">Sign Up</a>
 			<li ng-if='!user'><a href="/login">Log In</a>
 			<li ng-if='user'><a href="/teams">Your Teams</a>
 			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a>
@@ -13,19 +13,21 @@
 	</nav>
 </header>
 
-<div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
+<section id="all-teams-wrapper">
+	<div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
 
-	<h1> SIGN UP </h1>
+		<h1> SIGN UP </h1>
 
-	<form id='user-signup'>
-			<h3>Username:</h3><br/>
-			<input type='text' ng-model='username' id='username' placeholder='username'/>
-			<h3>E-Mail:</h3><br>
-			<input type='text' ng-model='email' id='email' placeholder='name@email.com'/>
-			<h3>Password:</h3><br/>
-			<input type='password' ng-model='password' id='password' placeholder='password'/><br/>
-			<button ng-click='addUser()'>Signup</button>
-	</form>
-		<a href="/user/login">Returning User? Log in here!</a>
+		<form id='user-signup'>
+				<h3>Username:</h3><br/>
+				<input type='text' ng-model='username' id='username' placeholder='username'/>
+				<h3>E-Mail:</h3><br>
+				<input type='text' ng-model='email' id='email' placeholder='name@email.com'/>
+				<h3>Password:</h3><br/>
+				<input type='password' ng-model='password' id='password' placeholder='password'/><br/>
+				<button ng-click='addUser()'>Signup</button>
+		</form>
+			<a href="/user/login">Returning User? Log in here!</a>
 
-</div>
+	</div>
+</section>

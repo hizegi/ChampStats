@@ -1,11 +1,11 @@
 <header>
 	<nav>
 		<ul>
-			<li><a class="active" href="/">home</a>
+			<li><a  href="/">home</a>
 			<li ng-if='!user'><a href="/signup">Sign Up</a>
 			<li ng-if='!user'><a href="/login">Log In</a>
 			<li ng-if='user'><a href="/teams">Your Teams</a>
-			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a>
+			<li id="profile" ng-if='user'><a class="active" href="/user/{{user._id}}/profile">Profile</a>
 				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">Profile</a></div>
 				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>Logout</a></div>
 			</li>
@@ -13,14 +13,15 @@
 	</nav>
 </header>
 
-
+<section id="all-teams-wrapper">
 	<H1 ng-if="user">{{user.username}}'s Profile</h1>
 
 
 
 
-<button ng-if='user' ng-click='UserCtrl.deleteUser()' ng-class="locations-button">DELETE YOUR ACCOUNT</button>
+	<button ng-if='user' ng-click='UserCtrl.deleteUser()' ng-class="locations-button">DELETE YOUR ACCOUNT</button>
 
-<div ng-if="UserCtrl.message">
-	Sad to see you go!
-	</div>
+	<div ng-if="UserCtrl.message">
+		Sad to see you go!
+		</div>
+<section>

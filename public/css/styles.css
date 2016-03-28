@@ -6,12 +6,6 @@ body {
 /*****************/
 /* NAV BAR STUFF */
 /*****************/
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #ccc;
-}
  
 nav ul {
   list-style: none;
