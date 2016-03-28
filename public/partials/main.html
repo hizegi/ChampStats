@@ -23,7 +23,7 @@
 
        
            <h3>{{champ.name}}</h3>
-           	<img class="big-icon" ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
+           	<img class="big-icon animated bounceIn" ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
             <div class="indiv-stat">
             	<strong> {{champ.name}} {{champ.title}}</strong><br>
 	            Armor: {{champ.stats.armor}}<br>
@@ -56,7 +56,7 @@
     	<h3>Assemble Your Team</h3>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
-    			<img class="icon" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
+    			<img id="selectChamp" class="icon animated rollIn" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
     		</div>
     	</div>
     	<div id="team-stats">

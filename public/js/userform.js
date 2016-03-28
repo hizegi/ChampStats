@@ -1,6 +1,6 @@
-var app = angular.module('user-form', ['ngRoute']);
+var app = angular.module('user-form', ['ngRoute', 'ngCookies']);
 
-app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http, $scope, $location, $rootScope, $routeParams){ //location changes the hash values in the url
+app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', '$cookies', function($http, $scope, $location, $rootScope, $routeParams, $cookies){ //location changes the hash values in the url
     var controller = this;
     this.password = null;
     this.id = $routeParams.id;
@@ -44,7 +44,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
     //$rooteScope is a super global variable ... attaches all of your properties to a global object
         var email = $scope.email;
         var pword = $scope.password;
-        
+
         $http.post('/user/login', {email: email, password : pword}).then(function(response){
             
             // console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow

@@ -65,7 +65,7 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 				controller.champs.push(response.data);
 
-				// console.log("This is controller.champs: ", controller.champs)
+				// console.log("Number of champs loaded: ", controller.champs.length);
 			},
 			function(err){
 				console.log(err)
@@ -82,7 +82,7 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 		if ((controller.totalStats.indexOf(champ.stats) == -1) && (controller.totalStats.length < 5)) {
 			controller.totalStats.push(champ.stats)
-			console.log("this is totalStats array: ", controller.totalStats)
+			// console.log("this is totalStats array: ", controller.totalStats)
 		}
 
 		controller.statsObj = {};
@@ -93,12 +93,20 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 	//this removes the champ and stats from the side table
 	this.remove = function(index){
+
+		// var image = document.getElementById("selectChamp");
+		// console.log("this is the image: ", image)
+		// image.classList.remove("rollIn");
+		// image.classList.add('bounceOutLeft');
+
 		console.log(index);
 		controller.choice.splice(index, 1);
 		controller.totalStats.splice(index, 1);
 		controller.statsObj = {};
 
 		repopulate();
+
+
 	}//ends remove()
 
 	//this saves the team to the database

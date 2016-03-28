@@ -1,5 +1,5 @@
 
-var app = angular.module('champApp', ['ngRoute', 'champ', 'user-form', 'team']);
+var app = angular.module('champApp', ['ngRoute', 'champ', 'user-form', 'team', 'profile']);
 
 console.log("app.js i work");
 // var app = angular.module("champApp", ["ngRoute", "user-form", "location-form", 'main']);
@@ -42,5 +42,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'partials/teams.html',
             controller: 'TeamController', 
             controllerAs: 'teamCtrl'
+        }).
+        when('/profile', {
+            templateUrl: 'partials/profile.html',
+            controller: 'UserController', 
+            controllerAs: 'UserCtrl'
         })
 }]);
