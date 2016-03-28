@@ -16,12 +16,30 @@
 <section id="all-teams-wrapper">
 	<H1 ng-if="user">{{user.username}}'s Profile</h1>
 
+	<h1>About Me:</h1>
+	{{UserCtrl.about}}
 
+
+	<h1>Main Champ</h1>
+	{{UserCtrl.main}}
+
+	<h1>Main Lane</h1>
+	{{UserCtrl.lane}}
+
+
+	<a href="/user/{{user._id}}/profile/edit">Edit Profile</a>
+	<button ng-click="UserCtrl.showEdit()">Edit Profile</button>
+
+
+
+	<form ng-if="UserCtrl.show">
+		<input type="text" ng-model="UserCtrl.about" placeholder="About me...">
+		<input type="text" ng-model="UserCtrl.main" placeholder="Main Champ">
+		<input type="text" ng-model="UserCtrl.lane" placeholder="Main Lane">
+		<button ng-click='UserCtrl.editUser()'>Edit</button>
+	</form>
 
 
 	<button ng-if='user' ng-click='UserCtrl.deleteUser()' ng-class="locations-button">DELETE YOUR ACCOUNT</button>
 
-	<div ng-if="UserCtrl.message">
-		Sad to see you go!
-		</div>
 <section>

@@ -89,14 +89,17 @@ router.post('/:id/addwine', function(req, res){
 //********************
 
 //Put/edit username
-router.put('/:id', function(req, res) {
-    var newUserName = req.body;
+router.put('/:id/profile', function(req, res) {
+    console.log("Edit Route HIT!")
+    // var newUserName = req.body;
     //     console.log("newUserName", newUserName);
     //     console.log('req.body.username: ', req.body.username);
-            User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
-    res.redirect('/users/' + req.params.id);
+    User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
+     res.send(user);
     });
 });
+
+
 
 router.put('/:id/:team_id', function(req,res){
     console.log("EDIT REQUEST RECEIVED")
@@ -119,6 +122,7 @@ router.put('/:id/:team_id', function(req,res){
         });
     });
 });
+
 
 
 //********************
@@ -151,43 +155,6 @@ router.delete('/:id', function(req, res) {
     });
 });
 
-//this will delete the wine
-router.delete('/:id/:location_id/:wineid', function(req, res){
-    // console.log("DELETE ROUTE ACCESSED");
-    // console.log("this is the user id, ", req.params.id)
-    // console.log("this is the location id", req.params.location_id)
-    // console.log("this is wineid : ", req.params.wineid);
-    var thisLocation = "";
-
-    User.findById(req.params.id, function(err, user){
-        Location.findById(req.params.location_id, function(err, location){
-            // console.log("Found the user: ", user)
-            // console.log("Found the location: ", location)
-            //find the location that matches the req.params.location by ID
-            for(var i = 0; i < user.location.length; i++){
-                //once location matches, search through that location's wines
-                if (user.location[i]._id == req.params.location_id){
-                    console.log("the location ids matched")
-                    console.log("this is the location found, " + user.location[i])
-                    console.log("this is the location[i].length; ", user.location[i].wine.length)
-                    //search through the wines and find match ID from req.params.wineid
-                    for (var j = 0; j < user.location[i].wine.length; j++){
-                        console.log("2nd for loop has been fired")
-                        //once wine matches, remove that wine
-                        if (user.location[i].wine[j]._id == req.params.wineid) {
-                            console.log("Found match for wine" , user.location[i].wine[j])
-                            user.location[i].wine[j].remove();
-                            console.log("here's what location looks like now", user.location[i])
-                            //save the user
-                            user.save();
-                            res.send(user.location[i].wine)
-                        }//ends if statement
-                    }//ends wine for loop
-                }//ends 1st if statement
-            }//ends location for loop
-        })//ends location 
-    })//ends find userById
-})//ends router.delete
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
