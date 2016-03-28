@@ -1,4 +1,16 @@
-
+<header>
+	<nav>
+		<ul>
+			<li><a class="active" href="/">home</a>
+			<li ng-if='!user'><a href="/signup">Sign Up</a>
+			<li ng-if='!user'><a href="/login">Log In</a>
+			<li ng-if='user'><a href="/teams">Your Teams</a>
+			<li ng-if='user'><a href="/" ng-click='logoutUser()'>Logout</a></li>
+			<li ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a></li>
+		</ul>
+	</nav>
+</header>
+	
 <main id="champ-main" ng-controller="ChampController as ChampCtrl">
 
 	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS {{user.username | uppercase}}</h1>

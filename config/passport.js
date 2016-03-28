@@ -5,6 +5,7 @@ var User = require('../models/user.js');
 var LocalStrategy   = require('passport-local').Strategy;
 var passport = require("passport");
 
+
 //=====================
 // EXPORTS
 //=====================
@@ -122,4 +123,31 @@ module.exports = function(passport){
 
     }));
 
+    // Remember Me cookie strategy
+    //   This strategy consumes a remember me token, supplying the user the
+    //   token was originally issued to.  The token is single-use, so a new
+    //   token is then issued to replace it.
+  //   passport.use(new RememberMeStrategy(
+  //     function(token, done) {
+  //       consumeRememberMeToken(token, function(err, uid) {
+  //         if (err) { return done(err); }
+  //         if (!uid) { return done(null, false); }
+          
+  //         findById(uid, function(err, user) {
+  //           if (err) { return done(err); }
+  //           if (!user) { return done(null, false); }
+  //           return done(null, user);
+  //         });
+  //       });
+  //     },
+  //     issueToken
+  //   ));
+
+  //   function issueToken(user, done) {
+  //     var token = utils.randomString(64);
+  //     saveRememberMeToken(token, user.id, function(err) {
+  //       if (err) { return done(err); }
+  //       return done(null, token);
+  //     });
+  // }
 }; //ends module.exports
