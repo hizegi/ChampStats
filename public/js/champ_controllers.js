@@ -2,7 +2,7 @@ var app = angular.module('champ', ['ngRoute']);
 
 console.log("I WORK CHAMP CONTROLLER")
 
-app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location', function($http, $scope, $rootScope, $location){
+app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location', '$anchorScroll', '$timeout', function($http, $scope, $rootScope, $location, $anchorScroll, $timeout){
 	this.loading = true;
 	this.champs = [];
 	this.champ_id = "";
@@ -113,11 +113,18 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	this.addTeam = function(){
 		console.log("This is what's in controller.choice: ", controller.choice)
 		var userID = $rootScope.user._id;
+		var goHere = this.name;
 		$http.post("/user/" + userID + "/team", {name: this.name, userid: userID, champ: controller.choice, stats: controller.statsObj}).then(
 			function(response){
-				//redirect to Teams Page
-				$location.path('/user/' + userID + '/team') ;
-				console.log(response)
+
+					//once successful, reroute to teams to #TEAMNAME just created
+			          $location.path('/user/' + userID + '/team') ;
+
+			          $timeout(function() {
+			             $anchorScroll(goHere);
+			          }, 500);
+
+				// console.log(response)
 			},
 			function(err){
 				console.log(err)
@@ -183,7 +190,6 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 			    }
 		
 	  };  
-
 
 
 }]); //ends ChampController

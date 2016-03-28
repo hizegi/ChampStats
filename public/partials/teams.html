@@ -10,11 +10,11 @@
 			<a href="/home"> Let's get started.</a>
 		</div>
 
-		<div ng-repeat="team in TeamCtrl.teams | filter:searchBox track by $index ">
+		<div ng-repeat="team in TeamCtrl.teams | filter:searchBox track by $index" id="{{team.name}}">
 			<h1> {{team.name}} </h1>
 
 			<div class="team-images">
-				<img ng-repeat="champ in team.champ" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
+				<img class="animated fadeInUp" ng-repeat="champ in team.champ " src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
 			</div>
 
 	        Armor: {{team.stats.armor}}<br>
