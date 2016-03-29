@@ -19,11 +19,12 @@ nav ul {
   margin: 0;
 }
 nav li {
-  font-size: 1rem;
-  line-height: 40px;
-  height: 40px;
-  border-bottom: 1px solid #888;
   width: 200px;
+  border-bottom: none;
+  height: 45px;
+  line-height: 44px;
+  font-size: 1em;
+  display: inline-block;
 }
  
 nav a {
@@ -181,7 +182,6 @@ h1 {
   display: inline-block;
   width: 30%;
   float: right;
-  height: 70%;
   background: white;
   padding-left: 1em;
   border-style: outset;
@@ -322,31 +322,44 @@ h1 {
   height: 277px;
 }
 
-@media screen and (min-width: 600px) {
-  nav li {
-    border-bottom: none;
-    height: 45px;
-    line-height: 44px;
-    font-size: 1em;
+/*****************/
+/* MEDIA QUERIES */
+/*****************/
+/*for devices between 480-640px*/
+@media only screen and (min-width:480px) and (max-width: 640px)  {
+  #champ-wrapper{
+    width: 51%;
   }
- 
-  /* Option 1 - Display Inline */
-  nav li {
-    display: inline-block;
-    width: 200px;
+  #team-wrapper{
+    width: 40%;
+    text-align: center;
   }
- 
-  /* Options 2 - Float
-  .nav li {
-    float: left;
+  .champ-div:hover .indiv-stat{
+  top: 0px;
+  width: 200px;
+  left: -40px;
   }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
+}
+
+/*for devices less than 479 px*/
+@media only screen and (max-width: 479px)  {
+  nav li{
     margin: 0 auto;
+    width: 70px;
   }
-  .nav {
-    background-color: #444;
+    #champ-wrapper{
+    width: 100%;
+    max-height: 200px;
   }
-  */
+  #team-wrapper{
+    width: 100%;
+    text-align: center;
+    float: none;
+
+  }
+  .champ-div:hover .indiv-stat{
+  width: 200px;
+  top: 0px;
+  left: -40px;
+  }
 }
