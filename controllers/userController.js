@@ -52,7 +52,7 @@ router.post('/login', passport.authenticate('local-login',{
 
 
 
-//new location
+//new team
 router.post('/:id/team', function(req, res){
     console.log('WORKING');
     console.log(req.params.id);
@@ -75,15 +75,6 @@ router.post('/:id/team', function(req, res){
     });
 })
 
-//this saves the selected wine and selected location to save to DB
-router.post('/:id/addwine', function(req, res){
-    console.log("ADDING WINE IS ACCESSED");
-    console.log("this was the location id request: ", req.body.locationid);
-    console.log("this was the wine request: ", req.body.wine);
-    console.log("this was the wine request's NAME: ", req.body.wine.Name);
-});
-
-
 //********************
 // UPDATE
 //********************
@@ -100,7 +91,7 @@ router.put('/:id/profile', function(req, res) {
 });
 
 
-
+//this edits the team name
 router.put('/:id/:team_id', function(req,res){
     console.log("EDIT REQUEST RECEIVED")
     Team.findByIdAndUpdate(req.params.team_id, req.body, function(err,team){
@@ -129,7 +120,7 @@ router.put('/:id/:team_id', function(req,res){
 // DELETE
 //********************
 
-//delete location
+//delete  team
 router.delete('/:id/:team_id', function(req, res) {
     console.log('Delete TEAM! Check Mongo');
     Team.findByIdAndRemove(req.params.team_id, function(err, team) {
