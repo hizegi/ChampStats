@@ -1,14 +1,15 @@
 <header>
 	<nav>
 		<ul>
-			<li><a href="/">home</a>
-			<li ng-if='!user'><a href="/signup">sign up</a>
-			<li ng-if='!user'><a class="active" href="/login">log in</a>
-			<li ng-if='user'><a href="/teams">my teams</a>
+			<li><a href="/">home</a></li>
+			<li ng-if='!user'><a href="/signup">sign up</a></li>
+			<li ng-if='!user'><a  class="active" href="/login">log in</a></li>
+			<li><a href="/teams">my teams</a></li>
 			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
 				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
 				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
 			</li>
+			<li><a href="/about">about</a></li>
 		</ul>
 	</nav>
 </header>

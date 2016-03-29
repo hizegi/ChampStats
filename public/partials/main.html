@@ -4,14 +4,15 @@
 		<header>
 			<nav>
 				<ul>
-					<li><a class="active" href="/">home</a>
-					<li ng-if='!user'><a href="/signup">sign up</a>
-					<li ng-if='!user'><a href="/login">log in</a>
-					<li ng-if='user'><a href="/teams">my teams</a>
+					<li><a class="active" href="/">home</a></li>
+					<li ng-if='!user'><a href="/signup">sign up</a></li>
+					<li ng-if='!user'><a href="/login">log in</a></li>
+					<li><a href="/teams">my teams</a></li>
 					<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
 						<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
 						<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
 					</li>
+					<li><a href="/about">about</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -23,10 +24,9 @@
 		<div class="styled-select">
 
 			<span> SEARCH CHAMPS: </span>
+			<input id="searchbar" type="text" ng-model="searchBox" placeholder="ie. Katarina">
 		    <select ng-model="filterItem.tag" ng-options="item.name for item in filterOptions.champ">
 		    </select>
-
-		    <input id="searchbar" type="text" ng-model="searchBox" placeholder="ie. Katarina">
 	    <br>
 		</div>
 	</div>

@@ -1,15 +1,16 @@
-<div class="animated fadeIn" id="profile-wrapper">
+<div id="profile-wrapper">
 	<header>
 		<nav>
 			<ul>
-				<li><a  href="/">home</a>
-				<li ng-if='!user'><a href="/signup">sign up</a>
-				<li ng-if='!user'><a href="/login">log in</a>
-				<li ng-if='user'><a href="/teams">your teams</a>
+				<li><a href="/">home</a></li>
+				<li ng-if='!user'><a href="/signup">sign up</a></li>
+				<li ng-if='!user'><a href="/login">log in</a></li>
+				<li><a href="/teams">my teams</a></li>
 				<li id="profile" ng-if='user'><a class="active" href="/user/{{user._id}}/profile">profile</a>
 					<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
 					<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
 				</li>
+				<li><a href="/about">about</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -19,29 +20,33 @@
 </div>
 
 <section id="all-teams-wrapper">
-	
-
-	<h1>About Me:</h1>
-	{{UserCtrl.about}}
-
-
-	<h1>Main Champ</h1>
-	{{UserCtrl.main}}
-
-	<h1>Main Lane</h1>
-	{{UserCtrl.lane}}
-
-	<button ng-click="UserCtrl.showEdit()">Edit Profile</button><br>
+		
+	<div id="profile-div">
+		<h1>About Me:</h1>
+		{{UserCtrl.about}}
 
 
+		<h1>Main Champ</h1>
+		{{UserCtrl.main}}
 
-	<form ng-if="UserCtrl.show">
-		<input type="text" ng-model="UserCtrl.about" placeholder="About me...">
-		<input type="text" ng-model="UserCtrl.main" placeholder="Main Champ">
-		<input type="text" ng-model="UserCtrl.lane" placeholder="Main Lane">
-		<button ng-click='UserCtrl.editUser()'>Save Changes</button>
-	</form>
+		<h1>Main Lane</h1>
+		{{UserCtrl.lane}}
 
+		<br><br>
+		<button ng-click="UserCtrl.showEdit()">Edit Profile</button><br>
+
+
+
+		<form ng-if="UserCtrl.show">
+			<input type="text" ng-model="UserCtrl.about" placeholder="About me...">
+			<input type="text" ng-model="UserCtrl.main" placeholder="Main Champ">
+			<input type="text" ng-model="UserCtrl.lane" placeholder="Main Lane">
+			<button ng-click='UserCtrl.editUser()'>Save Changes</button>
+		</form>
+
+		<br>
+	</div>
+	<br>
 	<br>
 	<button ng-if='user' ng-click='UserCtrl.deleteUser()' ng-class="locations-button">DELETE YOUR ACCOUNT</button>
 

@@ -51,8 +51,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'partials/profileEdit.html',
             controller: 'UserController', 
             controllerAs: 'UserCtrl'
+        }).
+        when('/about', {
+            templateUrl: 'partials/about.html',
+            controller: 'UserController', 
+            controllerAs: 'UserCtrl'
         })
-        
 }]);
 
 

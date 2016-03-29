@@ -1,24 +1,38 @@
-<header>
-	<nav>
-		<ul>
-			<li><a href="/">home</a>
-			<li ng-if='!user'><a href="/signup">Sign Up</a>
-			<li ng-if='!user'><a href="/login">Log In</a>
-			<li ng-if='user'><a class="active" href="/teams">Your Teams</a>
-			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a>
-				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">Profile</a></div>
-				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>Logout</a></div>
-			</li>
-		</ul>
-	</nav>
-</header>
+<div id="user-team-wrapper">	
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">home</a></li>
+				<li ng-if='!user'><a href="/signup">sign up</a></li>
+				<li ng-if='!user'><a href="/login">log in</a></li>
+				<li><a  class="active" href="/teams">my teams</a></li>
+				<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
+					<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
+					<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
+				</li>
+				<li><a href="/about">about</a></li>
+			</ul>
+		</nav>
+	</header>
 
+	<H1 id="title" ng-if="user">{{user.username | uppercase }}'S TEAMS</h1>
+	<br><br>
+	<span>Search Your Teams</span>
+	<input type="text" ng-model="searchBox" id="searchbar">
+
+<div id="profile-div">
+		You gotta be <a href="/login">logged in</a> for that. New? <a href="/signup">Sign up here</a>.
+		</div>
+</div>
+
+<section ng-if="!user" id="all-teams-wrapper">
+		<div id="profile-div">
+		You gotta be <a href="/login">logged in</a> for that. New? <a href="/signup">Sign up here</a>.
+		</div>
+</section>
 
 <section id="all-teams-wrapper" ng-controller="TeamController as TeamCtrl">
-	<h1> {{user.username}}'s Teams</h1>
 
-	<h2>Search Your Teams</h2>
-	<input type="text" ng-model="searchBox" id="searchbar">
 
 	<div id="user-teams">
 		<div id="no-teams" ng-if="TeamCtrl.teams.length == 0">

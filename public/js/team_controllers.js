@@ -4,6 +4,7 @@ console.log("Team controllers is working");
 
 app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', function($http, $scope, $rootScope, $location){
 	var controller = this;
+    var user = $rootScope.user;
 	var userID = $rootScope.user._id;
 	this.teams = [];
 	this.message = "Hello";

@@ -37,6 +37,8 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
 
        
         })//ends http put request
+
+        controller.show = false;
     };
 
 

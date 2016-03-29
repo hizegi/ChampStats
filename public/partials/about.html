@@ -1,0 +1,44 @@
+<div id="about-wrapper">
+		<header>
+			<nav>
+				<ul>
+					<li><a href="/">home</a></li>
+					<li ng-if='!user'><a href="/signup">sign up</a></li>
+					<li ng-if='!user'><a href="/login">log in</a></li>
+					<li><a href="/teams">my teams</a></li>
+					<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
+						<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
+						<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
+					</li>
+					<li><a  class="active" href="/about">about</a></li>
+				</ul>
+			</nav>
+		</header>
+
+
+	<H1 id="title" ng-if="user">About Team Builder</h1>
+
+</div>
+
+
+<section id="all-teams-wrapper">
+		
+	<div id="profile-div">
+
+		<h1>ABOUT</h1>
+
+		<p>I like the game. After learning to code for 3 months at a web dev bootcamp, I wanted to create a handy tool to build better teams. I'm no way affiliated with Riot. That'd be cool though!</p>
+
+		<h1>CHAMP DATA</h1>
+		<p>All stats are based off of <a href="https://developer.riotgames.com/">Riot's API</a>. Stats are always up to date, based off Riot updates.</p>
+
+		<h1>PROJECT STATUS</h1>
+		<p>This app is still a work-in-progress. I do not have access to your password so it cannot be reset or retrieved.</p>
+
+
+
+
+
+	</div>
+
+</section>
