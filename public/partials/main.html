@@ -1,3 +1,6 @@
+<main id="champ-main" ng-controller="ChampController as ChampCtrl">
+	<div id="main-wrapper">
+
 <header>
 	<nav>
 		<ul>
@@ -13,18 +16,22 @@
 	</nav>
 </header>
 
-<main id="champ-main" ng-controller="ChampController as ChampCtrl">
+
+
 
 	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS {{user.username | uppercase}}</h1>
 
-	<h2>Search Champions</h2>
-	<input type="text" ng-model="searchBox">
-	<p ng-click="ChampCtrl.customFilter()">Click on a champ to add to your team</p>
+	
 
-	 Filter:
+	 Filter by Type: 
     <select ng-model="filterItem.tag" ng-options="item.name for item in filterOptions.champ">
     </select>
+
+	<input id="searchbar" type="text" ng-model="searchBox" placeholder="Search Champions">
+	<p>Click on a champ to add to your team</p>
     <br>
+	</div>
+
 
     <div id="champ-wrapper" >
 
@@ -37,8 +44,8 @@
 
        
            <h3>{{champ.name}}</h3>
-           	<img class="big-icon animated bounceIn" ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
-            <div class="indiv-stat">
+           	<img id="big-icon" class="big-icon animated bounceIn" ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
+            <div class="indiv-stat animated fadeIn">
             	<strong> {{champ.name}} {{champ.title}}</strong><br>
 	            Armor: {{champ.stats.armor}}<br>
 	            Armor Per Level: {{champ.stats.armorperlevel}}<br>
@@ -68,9 +75,10 @@
 
     <div id="team-wrapper">
     	<h3>Assemble Your Team</h3>
+    	<h6>Click to Remove</h6>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
-    			<img id="selectChamp" class="icon animated rollIn" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png">
+    			<img id="selectChamp" class="icon animated rollIn" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png"/>
     		</div>
     	</div>
     	<div id="team-stats">

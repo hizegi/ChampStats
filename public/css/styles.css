@@ -1,6 +1,8 @@
 body {
   background: snow;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 /*****************/
@@ -9,7 +11,8 @@ body {
  
 nav ul {
   list-style: none;
-  background-color: #444;
+  background-color: rgb(12, 11, 11);
+  background-color: rgba(12, 11, 11, 0.44);
   text-align: center;
   padding: 0;
   margin: 0;
@@ -31,7 +34,7 @@ nav a {
 }
  
 nav a:hover {
-  background-color: #005f5f;
+  background-color: #840010;
 }
  
 nav a.active {
@@ -80,6 +83,27 @@ nav a.active {
   display:block;
  }
 /*****************/
+/* MAIN PAGE HEADER */
+/*****************/
+
+#main-wrapper {
+  background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Katarina_0.jpg");
+  background-position: 0% 32%;
+}
+
+/*****************/
+/* SEARCH BAR    */
+/*****************/
+ #searchbar{
+    font-size: 1.5rem;
+    border-radius: 0;
+    width: 50%;
+    height: 40px;
+    box-shadow: 0 0 13px #FFF6F6;
+    border: 0;
+    background: rgba(197, 197, 197, 0.44);
+ }
+/*****************/
 /* CHAMP SELECT  */
 /*****************/
 
@@ -87,7 +111,10 @@ nav a.active {
   width: 150px;
   display: inline-block;
   position: relative;
+  cursor: pointer;
+
 }
+
 .champ-div:hover .indiv-stat{
   padding: 1em;
   font-size: .8rem;
@@ -99,8 +126,9 @@ nav a.active {
   background: rgba(255, 250, 250, 0.7);
   z-index: 1000;
 }
-.big-icon:hover {
-  cursor: pointer;
+
+.indiv-stat{
+  display: none;
 }
 
 #champ-main {
@@ -138,6 +166,7 @@ nav a.active {
 .icon {
   width: 80px;
   margin-bottom: 5px;
+  position: relative;
 }
 
 #team-stats {
@@ -153,11 +182,23 @@ nav a.active {
   vertical-align: top;
 }
 
-.indiv-stat {
-  display: none;
+#selectChamp{
+  -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
 }
 
-
+#selectChamp:hover {
+  cursor: pointer;
+  width: 60px;
+/*  -webkit-transform:scale(.7);
+  -moz-transform:scale(.7);
+  -ms-transform:scale(.7);
+  -o-transform:scale(.7);
+  transform:scale(.7);*/
+}
 /*****************/
 /* TEAMS PAGE    */
 /*****************/
