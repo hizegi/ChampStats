@@ -1,8 +1,9 @@
 body {
-  background: snow;
+  background: #D2D2D2;
   height: 100%;
   padding: 0;
   margin: 0;
+  font-family: 'Marvel', Helvetica, sans-serif;
 }
 
 /*****************/
@@ -18,8 +19,7 @@ nav ul {
   margin: 0;
 }
 nav li {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
+  font-size: 1rem;
   line-height: 40px;
   height: 40px;
   border-bottom: 1px solid #888;
@@ -35,6 +35,7 @@ nav a {
  
 nav a:hover {
   background-color: #840010;
+  background: rgba(60, 0, 8, 0.52);
 }
  
 nav a.active {
@@ -86,22 +87,54 @@ nav a.active {
 /* MAIN PAGE HEADER */
 /*****************/
 
+h1 {
+  color: white;
+  padding-left: 5%;
+}
+
+#title{
+  font-size: 50px;
+  color: white;
+  padding-left: 8%;
+}
+
 #main-wrapper {
   background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Katarina_0.jpg");
   background-position: 0% 32%;
+  box-shadow: 0 3px 10px #000;
+  margin-bottom: 15px;
+}
+
+.styled-select select {
+       border-radius: 0;
+    width: 14%;
+    height: 30px;
+    box-shadow: 0 0 13px #FFF6F6;
+    border: 0;
+    background: white;
+    margin-bottom: 15px;
+    font-size: 0.8em;
+}
+
+.styled-select span{
+  padding-left: 5%;
+  font-size: 1.2em;
+  color: white;
 }
 
 /*****************/
 /* SEARCH BAR    */
 /*****************/
  #searchbar{
-    font-size: 1.5rem;
     border-radius: 0;
-    width: 50%;
-    height: 40px;
+    width: 14%;
+    height: 30px;
     box-shadow: 0 0 13px #FFF6F6;
     border: 0;
-    background: rgba(197, 197, 197, 0.44);
+    background: white;
+    margin-bottom: 15px;
+    font-size: 0.8em;
+    margin-left: 10px;
  }
 /*****************/
 /* CHAMP SELECT  */
@@ -112,18 +145,18 @@ nav a.active {
   display: inline-block;
   position: relative;
   cursor: pointer;
-
+  text-align: center;
 }
 
 .champ-div:hover .indiv-stat{
   padding: 1em;
-  font-size: .8rem;
   display: block;
   position: absolute;
   width: 200px;
   top: 80;
   left: 80;
-  background: rgba(255, 250, 250, 0.7);
+  border-radius: 5px;
+  background: rgba(255, 250, 250, 0.8);
   z-index: 1000;
 }
 
@@ -137,7 +170,6 @@ nav a.active {
 
 #champ-wrapper {
   width: 60%;
-  background: goldenrod;
   padding: 1em;
   height: 70%;
   overflow: auto;
@@ -155,6 +187,12 @@ nav a.active {
 
 #team-wrapper h3{
   text-align: center;
+  margin: 0px;
+}
+
+#team-wrapper p{
+  text-align: center;
+  margin: 0;
 }
 
 #team-pics {
@@ -167,6 +205,11 @@ nav a.active {
   width: 80px;
   margin-bottom: 5px;
   position: relative;
+}
+
+#big-icon {
+  box-shadow: 0 2px 9px #000;
+  border-radius: 8px;
 }
 
 #team-stats {
@@ -188,6 +231,8 @@ nav a.active {
   -ms-transition:all 0.5s ease-out;
   -o-transition:all 0.5s ease-out;
   transition:all 0.5s ease-out;
+  box-shadow: 0 2px 9px #000;
+  border-radius: 5px;
 }
 
 #selectChamp:hover {
@@ -228,11 +273,10 @@ nav a.active {
  
 @media screen and (min-width: 600px) {
   nav li {
-    width: 120px;
     border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
+    height: 45px;
+    line-height: 44px;
+    font-size: 1em;
   }
  
   /* Option 1 - Display Inline */

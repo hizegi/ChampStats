@@ -2,12 +2,12 @@
 	<nav>
 		<ul>
 			<li><a href="/">home</a>
-			<li ng-if='!user'><a href="/signup">Sign Up</a>
-			<li ng-if='!user'><a class="active" href="/login">Log In</a>
-			<li ng-if='user'><a href="/teams">Your Teams</a>
-			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a>
-				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">Profile</a></div>
-				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>Logout</a></div>
+			<li ng-if='!user'><a href="/signup">sign up</a>
+			<li ng-if='!user'><a class="active" href="/login">log in</a>
+			<li ng-if='user'><a href="/teams">my teams</a>
+			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
+				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
+				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
 			</li>
 		</ul>
 	</nav>

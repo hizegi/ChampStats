@@ -1,35 +1,34 @@
 <main id="champ-main" ng-controller="ChampController as ChampCtrl">
 	<div id="main-wrapper">
 
-<header>
-	<nav>
-		<ul>
-			<li><a class="active" href="/">home</a>
-			<li ng-if='!user'><a href="/signup">Sign Up</a>
-			<li ng-if='!user'><a href="/login">Log In</a>
-			<li ng-if='user'><a href="/teams">Your Teams</a>
-			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">Profile</a>
-				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">Profile</a></div>
-				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>Logout</a></div>
-			</li>
-		</ul>
-	</nav>
-</header>
+		<header>
+			<nav>
+				<ul>
+					<li><a class="active" href="/">home</a>
+					<li ng-if='!user'><a href="/signup">sign up</a>
+					<li ng-if='!user'><a href="/login">log in</a>
+					<li ng-if='user'><a href="/teams">my teams</a>
+					<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
+						<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
+						<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
+		<h1>LEAGUE OF LEGENDS</h1>
+		<h1 id="title">TEAM BUILDER</h1>
 
+		
+		<div class="styled-select">
 
+			<span> SEARCH CHAMPS: </span>
+		    <select ng-model="filterItem.tag" ng-options="item.name for item in filterOptions.champ">
+		    </select>
 
-	<h1>WELCOME TO LEAGUE OF LEGENDS CHAMP STATS {{user.username | uppercase}}</h1>
-
-	
-
-	 Filter by Type: 
-    <select ng-model="filterItem.tag" ng-options="item.name for item in filterOptions.champ">
-    </select>
-
-	<input id="searchbar" type="text" ng-model="searchBox" placeholder="Search Champions">
-	<p>Click on a champ to add to your team</p>
-    <br>
+		    <input id="searchbar" type="text" ng-model="searchBox" placeholder="ie. Katarina">
+	    <br>
+		</div>
 	</div>
 
 
@@ -75,7 +74,7 @@
 
     <div id="team-wrapper">
     	<h3>Assemble Your Team</h3>
-    	<h6>Click to Remove</h6>
+    	<p>(Click Champ to remove from team)</p>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
     			<img id="selectChamp" class="icon animated rollIn" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png"/>
