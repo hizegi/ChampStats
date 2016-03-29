@@ -40,6 +40,7 @@ nav a:hover {
  
 nav a.active {
   background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #444;
   cursor: default;
 }
@@ -178,14 +179,16 @@ h1 {
 
 #team-wrapper {
   display: inline-block;
-  width: 35%;
+  width: 30%;
   float: right;
   height: 70%;
-  background: thistle;
+  background: white;
   padding-left: 1em;
+  border-style: outset;
+  margin-right: 2%;
 }
 
-#team-wrapper h3{
+#team-wrapper h2{
   text-align: center;
   margin: 0px;
 }
@@ -193,6 +196,7 @@ h1 {
 #team-wrapper p{
   text-align: center;
   margin: 0;
+  border-bottom: 1px dotted green;
 }
 
 #team-pics {
@@ -251,6 +255,7 @@ h1 {
 
 #user-teams {
   width: 100%;
+  text-align: center;
 }
 
 #all-teams-wrapper {
@@ -267,9 +272,16 @@ h1 {
 }
 
 
-
-
-
+/*****************/
+/* PROFILE PAGE    */
+/*****************/
+#profile-wrapper{
+  background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Heimerdinger_0.jpg");
+  background-position: 0% 32%;
+  box-shadow: 0 3px 10px #000;
+  margin-bottom: 15px;
+  height: 277px;
+}
  
 @media screen and (min-width: 600px) {
   nav li {
@@ -282,7 +294,6 @@ h1 {
   /* Option 1 - Display Inline */
   nav li {
     display: inline-block;
-    margin-right: -4px;
     width: 200px;
   }
  

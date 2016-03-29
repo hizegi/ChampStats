@@ -1,20 +1,25 @@
-<header>
-	<nav>
-		<ul>
-			<li><a  href="/">home</a>
-			<li ng-if='!user'><a href="/signup">sign up</a>
-			<li ng-if='!user'><a href="/login">log in</a>
-			<li ng-if='user'><a href="/teams">your teams</a>
-			<li id="profile" ng-if='user'><a class="active" href="/user/{{user._id}}/profile">profile</a>
-				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
-				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
-			</li>
-		</ul>
-	</nav>
-</header>
+<div class="animated fadeIn" id="profile-wrapper">
+	<header>
+		<nav>
+			<ul>
+				<li><a  href="/">home</a>
+				<li ng-if='!user'><a href="/signup">sign up</a>
+				<li ng-if='!user'><a href="/login">log in</a>
+				<li ng-if='user'><a href="/teams">your teams</a>
+				<li id="profile" ng-if='user'><a class="active" href="/user/{{user._id}}/profile">profile</a>
+					<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
+					<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<H1 id="title" ng-if="user">{{user.username | uppercase }}'S PROFILE</h1>
+
+</div>
 
 <section id="all-teams-wrapper">
-	<H1 ng-if="user">{{user.username}}'s Profile</h1>
+	
 
 	<h1>About Me:</h1>
 	{{UserCtrl.about}}

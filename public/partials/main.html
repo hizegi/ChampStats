@@ -73,8 +73,9 @@
 
 
     <div id="team-wrapper">
-    	<h3>Assemble Your Team</h3>
+    	<h2>Assemble Your Team</h2>
     	<p>(Click Champ to remove from team)</p>
+    	<br>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
     			<img id="selectChamp" class="icon animated rollIn" ng-repeat="champ in ChampCtrl.choice track by $index" ng-click="ChampCtrl.remove($index)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ}}.png"/>
@@ -102,8 +103,8 @@
 			Spell Block:<br><br><br>
     	</div>
     	<div id="stat-numbers">
-			<span ng-repeat="stat in ChampCtrl.statsObj">
-			{{formatNumber(stat)}}</span>
+			<span ng-repeat="stat in ChampCtrl.statsObj"><strong>
+			{{formatNumber(stat)}}</strong></span>
     	</div>
 
     	<div ng-if="user">
@@ -115,7 +116,7 @@
     	</div>
 
     	<div ng-if="!user">
-    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save your teams!
+    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save & track your teams!
     	</div>
 	</div>
 
