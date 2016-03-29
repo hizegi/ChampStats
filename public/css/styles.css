@@ -328,16 +328,25 @@ h1 {
 /*for devices between 480-640px*/
 @media only screen and (min-width:480px) and (max-width: 640px)  {
   #champ-wrapper{
-    width: 51%;
+    width: 100%;
+    max-height: 250px;
+    margin-bottom: 10px;
   }
   #team-wrapper{
-    width: 40%;
+    width: 100%;
     text-align: center;
+    margin: 0;
   }
   .champ-div:hover .indiv-stat{
-  top: 0px;
+  top: 100%;
   width: 200px;
   left: -40px;
+  }
+  #profile-div{
+    width: 100%;
+  }
+  .team-images img{
+    width: 19%;
   }
 }
 
@@ -350,16 +359,23 @@ h1 {
     #champ-wrapper{
     width: 100%;
     max-height: 200px;
+    margin-bottom: 10px;
   }
   #team-wrapper{
     width: 100%;
     text-align: center;
     float: none;
-
+    margin: 0;
   }
   .champ-div:hover .indiv-stat{
   width: 200px;
-  top: 0px;
+  top: 100%;
   left: -40px;
+  }
+  #profile-div{
+    width: 100%;
+  }
+  .team-images img{
+    width: 19%;
   }
 }
