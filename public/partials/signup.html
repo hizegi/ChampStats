@@ -4,7 +4,6 @@
 			<li><a href="/">home</a></li>
 			<li ng-if='!user'><a  class="active" href="/signup">sign up</a></li>
 			<li ng-if='!user'><a href="/login">log in</a></li>
-			<li><a href="/teams">my teams</a></li>
 			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
 				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
 				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
@@ -17,18 +16,20 @@
 <section id="all-teams-wrapper">
 	<div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
 
-		<h1> SIGN UP </h1>
+		<div id="profile-div">
 
-		<form id='user-signup'>
-				<h3>Username:</h3><br/>
-				<input type='text' ng-model='username' id='username' placeholder='username'/>
-				<h3>E-Mail:</h3><br>
-				<input type='text' ng-model='email' id='email' placeholder='name@email.com'/>
-				<h3>Password:</h3><br/>
-				<input type='password' ng-model='password' id='password' placeholder='password'/><br/>
-				<button ng-click='addUser()'>Signup</button>
-		</form>
-			<a href="/user/login">Returning User? Log in here!</a>
+			<h1> SIGN UP </h1>
 
+			<form id='user-signup'>
+					<h3>Username:</h3><br/>
+					<input type='text' ng-model='username' id='username' placeholder='username'/>
+					<h3>E-Mail:</h3><br>
+					<input type='text' ng-model='email' id='email' placeholder='name@email.com'/>
+					<h3>Password:</h3><br/>
+					<input type='password' ng-model='password' id='password' placeholder='password'/><br/>
+					<button ng-click='addUser()'>Signup</button>
+			</form>
+				<a href="/user/login">Returning User? Log in here!</a>
+		</div>
 	</div>
 </section>
