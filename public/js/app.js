@@ -1,4 +1,3 @@
-
 var app = angular.module('champApp', ['ngRoute', 'champ', 'user-form', 'team', 'profile']);
 
 console.log("app.js i work");
@@ -55,3 +54,52 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         })
         
 }]);
+
+
+    // var tooltips = document.querySelectorAll('.tooltip span');
+
+    // console.log(tooltips);
+    // window.onmousemove = function(e){
+    //     var x = (e.clientX + 20) + 'px',
+    //         y = (e.clientY + 20) + 'px';
+
+    //         for (var i = 0; i < tooltips.length; i++){
+    //             tooltips[i].style.top = y;
+    //             tooltips[i].style.left = x;
+    //         }
+    // }; //ends onmousemove
+
+    // app.directive('tooltip',
+    //     function(){
+    //         return {
+    //             restrict: 'A',
+    //             link: function() {
+    //                 var tooltipSpan,
+    //                     x,
+    //                     y;
+    //                 //find element that will contain tool tip
+    //                 // tooltipSpan = document.getElementById('tooltip-span');
+    //                 tooltipSpan = document.getElementsByClassName("tooltip-span");
+    //                 // tootipSpan = 
+    //                 // console.log(tooltipSpan)
+    //                 for(var i=0; i < tooltipSpan.length; i++) {
+    //                      //bind mousemove event to the element which wiill show tooltip
+    //                      // [id=tooltip]
+    //                     $("#tooltip").mousemove(function(e){
+    //                         x = e.clientX,
+    //                         y = e.clientY;
+
+    //                         //set tool tip based on mouse position
+    //                         tooltipSpan[i].style.top = (y + 20) + 'px';
+    //                         tooltipSpan[i].style.left = (x + 20) + 'px';
+
+    //                         console.log(tooltipSpan[i].style.top)
+    //                     })
+    //                 }
+                   
+
+    //             }
+    //         }
+    // });//ends tooltip directive
+
+// });
