@@ -7,6 +7,8 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
+var key = process.env.LEAGUE_CLIENT_ID;
+var request = require('request');
 
 // var route = require('angular-route');
 
@@ -38,6 +40,29 @@ app.use(passport.session());
 //controllers
 // var userController = require('./controllers/userController.js');
 // app.use('/user', userController);
+
+//AJAX call to RIOT API
+app.get('/getdata/', function(req, res){
+  request({
+    url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key='+key,
+    method: 'GET',
+  }, function(error, response, body){
+  	// console.log("Here's the response: ", response);
+  	console.log("Here's the body: ", body)
+      res.send(body)
+  });
+});
+
+app.get('/getdata/:id', function(req, res){
+  request({
+    url: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + req.params.id + "?champData=all&api_key=" + key,
+    method: 'GET',
+}, function(error, response, body){
+  	// console.log("Here's the response: ", response);
+  	console.log("Here's the body: ", body)
+      res.send(body)
+  });
+});
 
 var champController = require('./controllers/champController.js');
 app.use('/champ', champController);

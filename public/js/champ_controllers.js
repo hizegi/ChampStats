@@ -26,13 +26,12 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	// 	});
 
 
-	//HTTP Request to RIOT API
+	//HTTP Request to SERVER > RIOT API
 	// + get champ ID
-	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
-	.then(
 
-		function(response){
-
+	$http.get('/getdata')
+	.then(function(response){
+		console.log("This is the response: ", response)
 			for (var key in response.data.data){
 				if (response.data.data.hasOwnProperty(key)){
 					var obj = response.data.data[key];
@@ -49,28 +48,68 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 					}
 				}
 			}
-		},
-		function(err){
-			console.log(err)
-		}); //ends HTTP Request
+	}, function(err){
+		console.log("This is the error: ", err)
+	});
 
 
-	// + make another HTTP request for champ info based on ID to display on page
+	// $http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
+	// .then(
+
+	// 	function(response){
+
+	// 		console.log(response)
+
+			// for (var key in response.data.data){
+			// 	if (response.data.data.hasOwnProperty(key)){
+			// 		var obj = response.data.data[key];
+			// 		for (var prop in obj) {
+			// 			if (obj.hasOwnProperty(prop)){
+			// 				if (prop == "id"){
+			// 					controller.champ_id = obj[prop]
+			// 					// console.log(controller.champ_id)
+
+			// 					getChamps();
+
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+	// 	},
+	// 	function(err){
+	// 		console.log(err)
+	// 	}); //ends HTTP Request
+
 	var getChamps = function(){
-		$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id + "?champData=all&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
-		.then(
-			function(response){
-				//de-activate loading message
-				controller.loading = false;
+	$http.get('/getdata/' + controller.champ_id)
+		.then(function(response){
+			console.log("Response #2: ", response);
+			controller.loading = false;
 
-				controller.champs.push(response.data);
+			controller.champs.push(response.data);
 
-				// console.log("Number of champs loaded: ", controller.champs.length);
-			},
-			function(err){
-				console.log(err)
-		}); //ends http request
-	}//ends getChamps();
+		}, function(err){
+
+		});
+	}
+	
+	// // + make another HTTP request for champ info based on ID to display on page
+	// var getChamps = function(){
+	// 	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id + "?champData=all&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
+	// 	.then(
+	// 		function(response){
+	// 			//de-activate loading message
+	// 			controller.loading = false;
+
+	// 			controller.champs.push(response.data);
+
+	// 			// console.log("Number of champs loaded: ", controller.champs.length);
+	// 		},
+	// 		function(err){
+	// 			console.log(err)
+	// 	}); //ends http request
+	// }//ends getChamps();
 
 
 	//this will add the champ to the champ side table, prevents duplicates
