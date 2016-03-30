@@ -1,4 +1,6 @@
-//REQUIREMENTS
+//=========================
+// REQUIREMENTS
+//=========================
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -10,7 +12,6 @@ var session = require('express-session');
 var key = process.env.LEAGUE_CLIENT_ID;
 var request = require('request');
 
-// var route = require('angular-route');
 
 //setting up port/DB, requiring mongoose
 var port = process.env.PORT || 3000;
@@ -21,7 +22,9 @@ var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/champs';
 require('./config/passport')(passport);
 
 
-//middleware
+//=========================
+// MIDDLEWARES
+//=========================
 app.use(express.static('public'))
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -30,16 +33,14 @@ app.use(bodyParser.json());
 
 //passport middleware
 var passport = require('passport');
-
 var session = require('express-session');
-
 app.use(session({name: 'champs_stat_auth_app', secret: 'leagueofdraven'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//controllers
-// var userController = require('./controllers/userController.js');
-// app.use('/user', userController);
+//=========================
+// AJAX CALLS TO RIOT API
+//=========================
 
 //AJAX call to RIOT API
 app.get('/getdata/', function(req, res){
@@ -64,13 +65,18 @@ app.get('/getdata/:id', function(req, res){
   });
 });
 
+//=========================
+// CONTROLLERS
+//=========================
 var champController = require('./controllers/champController.js');
 app.use('/champ', champController);
 
 var userController = require('./controllers/userController.js');
 app.use('/user', userController);
 
-//mongoose
+//=========================
+// LISTENERS
+//=========================
 mongoose.connect(mongoURI);
 
 mongoose.connection.on('error', function(){

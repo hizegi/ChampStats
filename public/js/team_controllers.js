@@ -46,10 +46,9 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
             for (var i = 0; i < controller.teams.length; i++){
 
                 if (controller.teams[i]._id == teamid){
-                    console.log("MATCH FOUND, response teamID: ", response.data.team[i]._id)
-                    console.log("MATCH FOUND, ctrller. teamID: ", controller.teams[i]._id)
-                    console.log("MATCH FOUND, Team Name: ", response.data.team[i].name)
-
+                    // console.log("MATCH FOUND, response teamID: ", response.data.team[i]._id)
+                    // console.log("MATCH FOUND, ctrller. teamID: ", controller.teams[i]._id)
+                    // console.log("MATCH FOUND, Team Name: ", response.data.team[i].name)
                     controller.teams[i].name = response.data.team[i].name
                 }
             }
