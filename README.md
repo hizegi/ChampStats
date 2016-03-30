@@ -2,6 +2,8 @@
 
 [View the deployed app on Heroku](https://champ-stats.herokuapp.com/)
 
+(it may take a few seconds for Heroku to 'wake up')
+
 Champ Stats is a single-page MEAN stack app that lets League of Legend players create and save Team Builds based on champions' base stats.
 
 ## Technologies Used
