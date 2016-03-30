@@ -101,7 +101,7 @@ h1 {
 }
 
 #main-wrapper {
-  background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Katarina_0.jpg");
+  background-image: url("/images/Katarina.jpg");
   background-position: 0% 32%;
   box-shadow: 0 3px 10px #000;
   margin-bottom: 15px;
@@ -290,7 +290,7 @@ h1 {
 /* PROFILE PAGE    */
 /*****************/
 #profile-wrapper{
-  background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Heimerdinger_0.jpg");
+  background-image: url("/images/profile.jpg");
   background-position: 0% 32%;
   box-shadow: 0 3px 10px #000;
   margin-bottom: 15px;
@@ -315,7 +315,7 @@ h1 {
 /* ABOUT PAGE    */
 /*****************/
 #about-wrapper {
-  background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Teemo_5.jpg");
+  background-image: url("/images/about.jpg");
   background-position: 0% 32%;
   box-shadow: 0 3px 10px #000;
   margin-bottom: 15px;

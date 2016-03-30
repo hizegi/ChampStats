@@ -48,7 +48,7 @@ app.get('/getdata/', function(req, res){
     method: 'GET',
   }, function(error, response, body){
   	// console.log("Here's the response: ", response);
-  	console.log("Here's the body: ", body)
+  	// console.log("Here's the body: ", body)
       res.send(body)
   });
 });
@@ -59,7 +59,7 @@ app.get('/getdata/:id', function(req, res){
     method: 'GET',
 }, function(error, response, body){
   	// console.log("Here's the response: ", response);
-  	console.log("Here's the body: ", body)
+  	// console.log("Here's the body: ", body)
       res.send(body)
   });
 });
