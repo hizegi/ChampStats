@@ -8,9 +8,9 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
 	this.message = false;
 	var controller = this;
 	this.show = false;
-	this.about = "";
-	this.main = "";
-	this.lane = "";
+	this.aboutme = "";
+	this.mainchamp = "";
+	this.mainlane = "";
 
 	//grab user data
     $http.get("/user/" + userID).then(function(response){
@@ -33,9 +33,7 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
        
         $http.put('/user/' + userID + '/profile', { about : this.about, main: this.main, lane: this.lane})
         .then(function(response){
-            console.log("This is response.data from put request #1: ", response.data);
-
-       
+            // console.log("This is response.data from put request #1: ", response.data);
         })//ends http put request
 
         controller.show = false;

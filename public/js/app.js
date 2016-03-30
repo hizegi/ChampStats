@@ -59,7 +59,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         })
 }]);
 
-
+    //FAILED ATTEMPT AT TOOLTIPS... it worked halfway, want to make this work someday
     // var tooltips = document.querySelectorAll('.tooltip span');
 
     // console.log(tooltips);

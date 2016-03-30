@@ -21,7 +21,6 @@ app.controller('TeamController', ['$http', '$scope', '$rootScope', '$location', 
             // console.log("This is what I pushed in: ", response.data.team[i])
             // console.log("This is the teams array: ", controller.teams)
         }
-
     });
 
     //this turns angular's numbers in to 2 decimal points

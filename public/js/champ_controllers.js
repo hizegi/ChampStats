@@ -14,21 +14,8 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	this.statsObj = {};
 	// userID = $rootScope.user._id;
 
-	// $http.get('/champ').then(
-	// 	//success
-	// 	function(response){
-	// 		// controller.champs = response.data;
-	// 		// console.log(response.data)
-	// 	},
-	// 	//error
-	// 	function(err){
-	// 		console.log(err)
-	// 	});
-
-
 	//HTTP Request to SERVER > RIOT API
 	// + get champ ID
-
 	$http.get('/getdata')
 	.then(function(response){
 		console.log("This is the response: ", response)
@@ -52,65 +39,17 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 		console.log("This is the error: ", err)
 	});
 
-
-	// $http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=d976480e-3f05-49c4-b516-3abb34d75227")
-	// .then(
-
-	// 	function(response){
-
-	// 		console.log(response)
-
-			// for (var key in response.data.data){
-			// 	if (response.data.data.hasOwnProperty(key)){
-			// 		var obj = response.data.data[key];
-			// 		for (var prop in obj) {
-			// 			if (obj.hasOwnProperty(prop)){
-			// 				if (prop == "id"){
-			// 					controller.champ_id = obj[prop]
-			// 					// console.log(controller.champ_id)
-
-			// 					getChamps();
-
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
-	// 	},
-	// 	function(err){
-	// 		console.log(err)
-	// 	}); //ends HTTP Request
-
+	// + make another HTTP request for champ info based on ID to display on page
 	var getChamps = function(){
 	$http.get('/getdata/' + controller.champ_id)
 		.then(function(response){
-			console.log("Response #2: ", response);
+			// console.log("Response #2: ", response);
 			controller.loading = false;
-
 			controller.champs.push(response.data);
-
 		}, function(err){
 
 		});
 	}
-	
-	// // + make another HTTP request for champ info based on ID to display on page
-	// var getChamps = function(){
-	// 	$http.get("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion/" + controller.champ_id + "?champData=all&api_key=d976480e-3f05-49c4-b516-3abb34d75227")
-	// 	.then(
-	// 		function(response){
-	// 			//de-activate loading message
-	// 			controller.loading = false;
-
-	// 			controller.champs.push(response.data);
-
-	// 			// console.log("Number of champs loaded: ", controller.champs.length);
-	// 		},
-	// 		function(err){
-	// 			console.log(err)
-	// 	}); //ends http request
-	// }//ends getChamps();
-
 
 	//this will add the champ to the champ side table, prevents duplicates
 	// + push stats info to be accumulated
@@ -133,18 +72,12 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 	//this removes the champ and stats from the side table
 	this.remove = function(index){
 
-		// var image = document.getElementById("selectChamp");
-		// console.log("this is the image: ", image)
-		// image.classList.remove("rollIn");
-		// image.classList.add('bounceOutLeft');
-
 		console.log(index);
 		controller.choice.splice(index, 1);
 		controller.totalStats.splice(index, 1);
 		controller.statsObj = {};
 
 		repopulate();
-
 
 	}//ends remove()
 
@@ -169,8 +102,8 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 				console.log(err)
 			});
 
-		console.log(this.name)
-		console.log(controller.choice)
+		// console.log(this.name)
+		// console.log(controller.choice)
 	}//ends save()
 
 	//iterates obj and sums all values

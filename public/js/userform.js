@@ -24,8 +24,8 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 
              //once user is signed up, pull up user info immediately        
             $http.get("/user/" + userID).then(function(response){
-                console.log("This is the response.data.username ", response.data.username);
-                console.log("This is the username through Scope", $scope.username);
+                // console.log("This is the response.data.username ", response.data.username);
+                // console.log("This is the username through Scope", $scope.username);
                 $rootScope.user = response.data;  
             })
         },
@@ -38,8 +38,6 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 
 
     $scope.loginUser = function() {
-    	
-        console.log('WORKING!!!');
     //need to run an ajax POST call to authenticate user name and password and have the server authenticate then
     //$rooteScope is a super global variable ... attaches all of your properties to a global object
         var email = $scope.email;
@@ -66,10 +64,10 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 
     $rootScope.logoutUser = function() {
         var user = $rootScope.user;
-        console.log(user._id);
-        console.log('LOGOUT WORKING');
+        // console.log(user._id);
+        // console.log('LOGOUT WORKING');
         $http.get('/user/' + user._id + '/logout').then(function(response){
-            console.log(response);
+            // console.log(response);
             $rootScope.user = null;
         },
         function(err){
@@ -80,11 +78,11 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
     //delete user
     $rootScope.deleteUser = function(){
         // console.log("user was deleted");
-        console.log($rootScope.user)
+        // console.log($rootScope.user)
         var userDeleteID = $rootScope.user._id;
         $http.delete('/user/' + userDeleteID).then(function(response){
-            console.log(response);
-            alert('Yuh hilarious');
+            // console.log(response);
+            // alert('Yuh hilarious');
             $rootScope.user = null;
         },
         function(err){
