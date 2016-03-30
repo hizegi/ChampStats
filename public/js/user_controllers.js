@@ -15,9 +15,9 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
 	//grab user data
     $http.get("/user/" + userID).then(function(response){
 
-	    controller.about = response.data.about;
-	    controller.main = response.data.main;
-	    controller.lane = response.data.lane;
+	    controller.aboutme = response.data.about;
+	    controller.mainchamp = response.data.main;
+	    controller.mainlane = response.data.lane;
 
     });
 
@@ -27,13 +27,20 @@ app.controller('UserController', ['$http', '$scope', '$rootScope', '$location', 
 
     //this is to update user info
     this.editUser = function() {
-    	console.log("Edit User ACCESSED");
-    	console.log(controller.about);
+    	// console.log("Edit User ACCESSED");
+    	// console.log(controller.about);
         var userID = $rootScope.user._id;
        
         $http.put('/user/' + userID + '/profile', { about : this.about, main: this.main, lane: this.lane})
         .then(function(response){
             // console.log("This is response.data from put request #1: ", response.data);
+             $http.get("/user/" + userID).then(function(response){
+	            controller.aboutme = response.data.about;
+	            controller.mainchamp = response.data.main;
+	            controller.mainlane = response.data.lane;
+       		 }, function(err){
+        	console.log(err)
+      		})//ends http get request
         })//ends http put request
 
         controller.show = false;
