@@ -5,6 +5,14 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
     this.password = null;
     this.id = $routeParams.id;
 
+    $http.get('/checkuser').then(function(response){
+        console.log("CHECK USER RESPONSE", response);
+        $http.get('/user/' + response.data).then(function(response){
+                console.log("SECOND GET RESPONSE", response);
+                $rootScope.user = response.data;
+            });
+    });
+
     //this is for NEW SIGN UP USERS
     $scope.addUser = function() {
         var uname = $scope.username;

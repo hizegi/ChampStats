@@ -35,14 +35,14 @@
     <div id="champ-wrapper" >
 
     	<div ng-if="ChampCtrl.loading">
-    		<h2>LOADING CHAMP DATA....</h2>
+    		<h2>LOADING LATEST CHAMP DATA....</h2>
     		<iframe src="//giphy.com/embed/uR6julmSW90mk?html5=true" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     	</div>
 
         <div class="champ-div" data-ng-repeat="champ in ChampCtrl.champs | filter:searchBox | filter:customFilter">
 
        
-           <h3>{{champ.name}}</h3>
+           <h3 class="champ-name">{{champ.name}}</h3>
            	<img id="big-icon" class="big-icon animated bounceIn" ng-click="ChampCtrl.showInfo(champ)" src="http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/{{champ.key}}.png"><br>
             <div class="indiv-stat animated fadeIn">
             	<strong> {{champ.name}} {{champ.title}}</strong><br>
@@ -74,7 +74,7 @@
 
     <div id="team-wrapper">
     	<h2>Assemble Your Team</h2>
-    	<p>(Click Champ to remove from team)</p>
+
     	<br>
     	<div id="team-pics">
     		<div ng-if="ChampCtrl.choice">
@@ -82,25 +82,25 @@
     		</div>
     	</div>
     	<div id="team-stats">
-         	Armor: <br>
-            Armor Per Level:<br>
-            Attack Damage:<br>
-			Attack Damage per Level:<br>
-			Attack Range:<br>
-			Attack Speed Offset:<br>
-			Attack Speed Per Level: <br>
-			Crit: <br>
-			Crit per level: <br>
-			HP: <br>
-			HP per Level: <br>
-			HP Regen: <br>
-			HP Regen per Level: <br>
-			Movement Speed: <br>
-			MP: <br>
-			MP per Level: <br>
-			MP Regen: <br>
-			MP Regen Per Level: <br>
-			Spell Block:<br><br><br>
+	         	Armor: <br>
+	            Armor Per Level:<br>
+	            Attack Damage:<br>
+				Attack Damage per Level:<br>
+				Attack Range:<br>
+				Attack Speed Offset:<br>
+				Attack Speed Per Level: <br>
+				Crit: <br>
+				Crit per level: <br>
+				HP: <br>
+				HP per Level: <br>
+				HP Regen: <br>
+				HP Regen per Level: <br>
+				Movement Speed: <br>
+				MP: <br>
+				MP per Level: <br>
+				MP Regen: <br>
+				MP Regen Per Level: <br>
+				Spell Block:<br><br><br>
     	</div>
     	<div id="stat-numbers">
 			<span ng-repeat="stat in ChampCtrl.statsObj"><strong>
@@ -116,7 +116,7 @@
     	</div>
 
     	<div ng-if="!user">
-    		<a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save & track your teams!
+    		<h4><a href="/login">LOG IN</a> or <a href="/signup">SIGN UP</a> to save & track your teams!</h4>
     	</div>
 	</div>
 

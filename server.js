@@ -11,6 +11,7 @@ var passportLocal = require('passport-local');
 var session = require('express-session');
 var key = process.env.LEAGUE_CLIENT_ID;
 var request = require('request');
+var cookieParser = require('cookie-parser');
 
 
 //setting up port/DB, requiring mongoose
@@ -29,6 +30,7 @@ app.use(express.static('public'))
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cookieParser());
 // app.use(methodOverride('_method'));
 
 //passport middleware
@@ -41,6 +43,17 @@ app.use(passport.session());
 //=========================
 // AJAX CALLS TO RIOT API
 //=========================
+
+//check user session
+app.get('/checkuser', function(req,res){
+    if (req.isAuthenticated()) {
+        console.log("THIS CHECKUSER THING WAS HIT");
+        console.log(req.session.passport.user);
+        res.send(req.session.passport.user);
+    } else {
+        console.log("USER NOT AUTH ... CHECKUSER HIT")
+    }
+});
 
 //AJAX call to RIOT API
 app.get('/getdata/', function(req, res){

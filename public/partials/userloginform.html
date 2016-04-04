@@ -2,8 +2,8 @@
 	<nav>
 		<ul>
 			<li><a href="/">home</a></li>
-			<li ng-if='!user'><a href="/signup">sign up</a></li>
-			<li ng-if='!user'><a  class="active" href="/login">log in</a></li>
+			<li ><a href="/signup">sign up</a></li>
+			<li ><a class="active" href="/login">log in</a></li>
 			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
 				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
 				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
@@ -15,11 +15,12 @@
 
 <section id="all-teams-wrapper">
 		
-	<div id="profile-div">
+	<div id="profile-div" class="form-style-8">
 
+		<h2>Welcome, Summoner!</h2>
 		<form id='userLogin'>
 
-			<h2>Welcome, Summoner!</h2>
+			
 			<h3>E-mail:</h3><br/>
 			<input type='text' ng-model='email' id='email' placeholder='name@email.com'/><br/>
 			<h3>Password:</h3><br/>
