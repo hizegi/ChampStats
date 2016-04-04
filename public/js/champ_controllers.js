@@ -94,7 +94,7 @@ app.controller('ChampController', ['$http', '$scope', '$rootScope', '$location',
 
 			          $timeout(function() {
 			             $anchorScroll(goHere);
-			          }, 1000);
+			          }, 700);
 
 				// console.log(response)
 			},
