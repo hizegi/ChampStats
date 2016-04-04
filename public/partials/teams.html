@@ -22,7 +22,7 @@
 
 </div>
 
-<section id="all-teams-wrapper" ng-controller="TeamController as TeamCtrl">
+<section ng-controller="TeamController as TeamCtrl">
 
 
 	<div id="user-teams">
@@ -34,8 +34,8 @@
 		<div ng-repeat="team in TeamCtrl.teams | filter:searchBox track by $index" id="{{team.name}}">
 			<h1> {{team.name}} </h1>
 
-			<div class="team-images">
-				<img class="animated fadeInUp" ng-repeat="champ in team.champ " src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
+			<div class="team-images animated fadeInUp" >
+				<img ng-repeat="champ in team.champ " src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champ}}_0.jpg">
 			</div>
 			
 			<div id="part1">

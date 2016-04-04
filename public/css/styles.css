@@ -277,12 +277,47 @@ h1 {
   margin: 0 auto;
 }
 
+.team-images {
+  background: black;
+  position: relative;
+  width:90%;
+  margin: 0 auto;
+  max-width: 1030px;
+}
+.team-images:before, .team-images:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: black;
+  box-shadow: 0 35px 20px #582020;
+  transform: rotate(-8deg);
+}
+.team-images:after
+{
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
 .team-images img {
   display: inline-block;
   width: 19%;
   box-sizing: border-box;
   max-width: 200px;
-  margin: 2px;
+}
+
+#team-stats span{
+  vertical-align: bottom;
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  background: url('https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png');
 }
 
 #user-team-wrapper{
@@ -349,7 +384,7 @@ h1 {
 
 
 .form-style-8{
-    font-family: 'Open Sans Condensed', arial, sans;
+
     width: 500px;
     padding: 30px;
     background: #FFFFFF;
@@ -360,10 +395,9 @@ h1 {
 
 }
 .form-style-8 h2{
-    background: #4D4D4D;
+    background: #22454E;
     text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #797979;
+    color: #CDCDCD;
     font-size: 18px;
     font-weight: 100;
     padding: 20px;
@@ -392,7 +426,6 @@ h1 {
     border-bottom: 1px solid #ddd;
     background: transparent;
     margin-bottom: 10px;
-    font: 16px Arial, Helvetica, sans-serif;
     height: 45px;
 }
 .form-style-8 textarea{
@@ -400,16 +433,16 @@ h1 {
     overflow: hidden;
 }
 .form-style-8 input[type="button"], 
-.form-style-8 input[type="submit"]{
+.form-style-8 input[type="submit"],
+button{
     -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
     box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    background-color: #2CBBBB;
+    background-color: #22454E;
     border: 1px solid #27A0A0;
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     padding: 8px 18px;
     text-decoration: none;
@@ -475,6 +508,6 @@ h1 {
     width: 100%;
   }
   .team-images img{
-    width: 19%;
+    width: 15%;
   }
 }
