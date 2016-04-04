@@ -2,7 +2,7 @@
 	<nav>
 		<ul>
 			<li><a href="/">home</a></li>
-			<li ng-if='!user'><a  class="active" href="/signup">sign up</a></li>
+			<li ng-if='!user'><a class="active" href="/signup">sign up</a></li>
 			<li ng-if='!user'><a href="/login">log in</a></li>
 			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
 				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
@@ -14,7 +14,7 @@
 </header>
 
 <section id="all-teams-wrapper">
-	<div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
+	<div class="user-sign-in" ng-controller='FormController as formCtrl'>
 
 		<div id="profile-div" class="form-style-8">
 
