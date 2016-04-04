@@ -237,6 +237,12 @@ h1 {
   vertical-align: top;
 }
 
+#stat-numbers span{
+    display: inline-block;
+    margin-top: 1px;
+    height: 22px;
+}
+
 #selectChamp{
   -webkit-transition:all 0.5s ease-out;
   -moz-transition:all 0.5s ease-out;
