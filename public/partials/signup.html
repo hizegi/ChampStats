@@ -4,10 +4,6 @@
 			<li><a href="/">home</a></li>
 			<li ng-if='!user'><a class="active" href="/signup">sign up</a></li>
 			<li ng-if='!user'><a href="/login">log in</a></li>
-			<li id="profile" ng-if='user'><a href="/user/{{user._id}}/profile">profile</a>
-				<div id="dropdown1" class="dropdown"><a href="/user/{{user._id}}/profile">my profile</a></div>
-				<div id="dropdown2" class="dropdown"><a href="/" ng-click='logoutUser()'>logout</a></div>
-			</li>
 			<li><a href="/about">about</a></li>
 		</ul>
 	</nav>

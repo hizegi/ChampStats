@@ -23,27 +23,30 @@
 		
 	<div id="profile-div">
 		<h1>About Me:</h1>
-		{{UserCtrl.aboutme}}
+		<p>{{UserCtrl.aboutme}}</p>
 
 
 		<h1>Main Champ</h1>
-		{{UserCtrl.mainchamp}}
+		<p>{{UserCtrl.mainchamp}}</p>
 
 		<h1>Main Lane</h1>
-		{{UserCtrl.mainlane}}
+		<p>{{UserCtrl.mainlane}}</p>
 
 		<br><br>
 		<button ng-click="UserCtrl.showEdit()">Edit Profile</button><br>
 
 
+		<div class="form-style-8"  ng-if="UserCtrl.show">
 
-		<form ng-if="UserCtrl.show">
-			<input type="text" ng-model="UserCtrl.about" placeholder="About me...">
-			<input type="text" ng-model="UserCtrl.main" placeholder="Main Champ">
-			<input type="text" ng-model="UserCtrl.lane" placeholder="Main Lane">
-			<button ng-click='UserCtrl.editUser()'>Save Changes</button>
-		</form>
+			<h2> Edit your profile. Be glorious. </h2>
 
+			<form>
+				<input type="text" ng-model="UserCtrl.about" placeholder="About me...">
+				<input type="text" ng-model="UserCtrl.main" placeholder="Main Champ">
+				<input type="text" ng-model="UserCtrl.lane" placeholder="Main Lane">
+				<button ng-click='UserCtrl.editUser()'>Save Changes</button>
+			</form>
+		</div>
 		<br>
 	</div>
 	<br>

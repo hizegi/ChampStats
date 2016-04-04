@@ -196,7 +196,6 @@ h1 {
 #team-wrapper h2{
   text-align: center;
   margin: 0px;
-  /*text-shadow: 2px 3px 6px #292929;*/
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   font-size: 2em;
   border-bottom: 1px solid black;
@@ -363,24 +362,28 @@ h1 {
 }
 
 #profile-div{
-  display: inline-block;
-  width: 50%;
-  background: white;
-  padding: 2em;
-  border-style: outset;
-  margin: 0 auto;
-  color: black;
+    width: 50%;
+    background: white;
+    padding: 2em;
+    margin: 0 auto;
+    color: black;
+    margin-top: 20px;
+
 }
 
 #profile-div h1 {
+  font-size: 2em;
   color: black;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  margin-top: 50px;
+  padding: 0;
 }
  
 /*****************/
 /* ABOUT PAGE    */
 /*****************/
 #about-wrapper {
-  background-image: url("/images/about.jpg");
+  background-image: url("/images/teemo.jpg");
   background-position: 0% 32%;
   box-shadow: 0 3px 10px #000;
   margin-bottom: 15px;
