@@ -378,6 +378,10 @@ h1 {
   margin-top: 50px;
   padding: 0;
 }
+
+#profile-div h3 {
+  margin: 0;
+}
  
 /*****************/
 /* ABOUT PAGE    */
@@ -389,7 +393,24 @@ h1 {
   margin-bottom: 15px;
   height: 277px;
 }
+/*****************/
+/* FORM PAGE    */
+/*****************/
+#signup-wrapper{
+  background-image: url("/images/signup.jpg");
+  background-position: 4% 45%;
+  box-shadow: 0 3px 10px #000;
+  margin-bottom: 15px;
+  height: 277px;
+}
 
+#login-wrapper{
+  background-image: url("/images/login.jpg");
+  background-position: 0% 32%;
+  box-shadow: 0 3px 10px #000;
+  margin-bottom: 15px;
+  height: 277px;
+}
 /*****************/
 /* FORM STUFF    */
 /*****************/
